@@ -15,7 +15,7 @@
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 	<!-- Favicon -->
-    <link rel="shortcut icon" href="dist/favIcon/SabrFoundation-Circle.png">
+    <link rel="shortcut icon" href="dist/favIcon/ILIKA-CIRCLE.png">
     <link rel="icon" href="" type="image/x-icon">
 	
 	<!-- CSS -->
