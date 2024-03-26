@@ -8,19 +8,19 @@ include("session/sessionTrack.php");
 include("DBConfig/connection.php");
 
 // include header
-include("header.php");
+include("includes/header.php");
 
 //include Top Nav Bar
-include("navBarTop.php");
+include("includes/navBarTop.php");
 
 //Include Left Nav Bar
-include("navBarLeft.php");
+include("includes/navBarLeft.php");
 
 //Include Profile
-include("profile.php");
+include("includes/profile.php");
 
 //Include Footer
-include("footer.php");
+include("includes/footer.php");
 
 
 ?>

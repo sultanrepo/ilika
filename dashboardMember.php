@@ -1,21 +1,21 @@
 <?php
 
 //Session
-include("session/sessionTrack.php");
+include ("session/sessionTrack.php");
 
 // include header
-include("header.php");
+include ("includes/header.php");
 
 //include Top Nav Bar
-include("navBarTop.php");
+include ("includes/navBarTop.php");
 
 //Include Left Nav Bar
-include("navBarLeft.php");
+include ("includes/navBarLeft.php");
 
 //Include dashboard Containt
-include("dashboardMain.php");
+include ("includes/dashboardMain.php");
 
 //Include Footer
-include("footer.php");
+include ("includes/footer.php");
 
 ?>

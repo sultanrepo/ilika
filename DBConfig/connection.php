@@ -1,15 +1,16 @@
 <?php
 $servername = "localhost";
-$username = "id21308246_sabrfoundation";//act
-$password = "Sultan@81";//Adam@81
-$dataBase = "id21308246_sabrfoundation";
+$username = "root";//act
+$password = "";//Adam@81
+$dataBase = "ilika_dev";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dataBase);
 
 // Check connection
 // if (!$conn) {
-//   die("Connection failed: " . mysqli_connect_error());
+//     die ("Connection failed: " . mysqli_connect_error());
 // }
 // echo "Connected successfully";
+
 ?>

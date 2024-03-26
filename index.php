@@ -2,17 +2,17 @@
 
 include ("session/sessionTrack.php");
 
-include("header.php");
+include("includes/header.php");
 
-include("navBarTop.php");
+include("includes/navBarTop.php");
 
-include("navBarLeft.php");
+include("includes/navBarLeft.php");
 
 //include("chatPopUp.php");
 
-include("dashboardMain.php");
+include("includes/dashboardMain.php");
 
-include("footer.php");
+include("includes/footer.php");
 
 
 ?>
