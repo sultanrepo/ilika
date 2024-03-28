@@ -1,50 +1,53 @@
-
 <!-- Cards -->
 <div class="row">
 	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
 		<div class="card text-white bg-primary">
-			<div class="card-header">Total <br> Collections</div>
+			<div class="card-header">Total <br> Clicks</div>
 			<div class="card-body">
-				<h5 class="card-title text-white">₹<?php  if ( isset($_GET['getDate']) ) { echo $totalCollection; } else { echo "0"; } ?></h5>
-			</div>
-		</div>
-	</div>
-	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-		<div class="card text-white bg-warning">
-			<div class="card-header">Total <br> Donation</div>
-			<div class="card-body">
-				<h5 class="card-title text-white">₹ <?php 
-				if ( isset($_GET['getDate']) ) { 
-					if ( $donationAmout == null ) {
-						echo "0";
-					} else {
-						echo $donationAmout;
-					}
-					} else { echo "0"; } ?></h5>
+				<h5 class="card-title text-white">245
+					<?php 
+					// if (isset ($_GET['getDate'])) {
+					// 	echo $totalCollection;
+					// } else {
+					// 	echo "0";
+					// } 
+					?>
+				</h5>
 			</div>
 		</div>
 	</div>
 	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
 		<div class="card text-white bg-success">
-			<div class="card-header">Remaing <br> Amount</div>
+			<div class="card-header">Total <br> Completes</div>
 			<div class="card-body">
-				<h5 class="card-title text-white">₹<?php  if ( isset($_GET['getDate']) ) { echo $total_remaing_amount; } else { echo "0"; } ?> </h5>
+				<h5 class="card-title text-white">2
+					<?php
+					// if ( isset($_GET['getDate']) ) { 
+					// 	if ( $donationAmout == null ) {
+					// 		echo "0";
+					// 	} else {
+					// 		echo $donationAmout;
+					// 	}
+					// 	} else { echo "0"; }  ?>
+				</h5>
 			</div>
 		</div>
 	</div>
 	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-		<div class="card text-white bg-secondary ">
-			<div class="card-header"><?php if ( isset($_GET['getDate']) ) { echo $months[$monthN - 1]; } else { echo "NA"; } ?> <br> Collections</div>
+		<div class="card text-white bg-warning">
+			<div class="card-header">Total <br> Terminates</div>
 			<div class="card-body">
-				<h5 class="card-title text-white">₹ <?php  if ( isset($_GET['getDate']) ) { echo $thisMonthCollection; } else { echo "0"; } ?> </h5>
+				<h5 class="card-title text-white">114
+					<?php  //if ( isset($_GET['getDate']) ) { echo $total_remaing_amount; } else { echo "0"; }  ?>
+				</h5>
 			</div>
 		</div>
 	</div>
 	<!-- <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
 		<div class="card text-white bg-danger">
-			<div class="card-header">Pending Payment <br> (<?php //if ( isset($_GET['getDate']) ) { echo $months[$monthN - 1]; } else { echo "NA"; } ?>)</div>
+			<div class="card-header">Pending Payment <br> (<?php //if ( isset($_GET['getDate']) ) { echo $months[$monthN - 1]; } else { echo "NA"; }  ?>)</div>
 			<div class="card-body">
-				<h5 class="card-title text-white">₹ <?php  //if ( isset($_GET['getDate']) ) { echo $pendingAmount; } else { echo "0"; } ?> </h5>
+				<h5 class="card-title text-white">₹ <?php  //if ( isset($_GET['getDate']) ) { echo $pendingAmount; } else { echo "0"; }  ?> </h5>
 			</div>
 		</div>
 	</div> -->
