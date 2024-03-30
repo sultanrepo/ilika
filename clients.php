@@ -29,7 +29,8 @@ include ("includes/navBarLeft.php");
 					</div>
 					<div class="mb-lg-0 mb-2 me-8">
 						<!-- <h1 class="pg-title">New Clients</h1> -->
-						<button type="button" onclick="redirectToPage('clientRegister.php')" class="btn btn-primary">New
+						<button type="button"  class="btn btn-primary"
+							data-bs-toggle="modal" data-bs-target="#exampleModalForms">New
 							Client</button>
 						<p></p>
 					</div>
@@ -40,15 +41,11 @@ include ("includes/navBarLeft.php");
 		<hr>
 		<?php
 
-		//Include Get Payment Details Form
-// include("view/forms/monthlyPaymentDetailsForm.php");
-		
-		//Include Payment Details Cards
-		//include ("view/cards/clientsDetailsCard.php");
+		//Include Client Registration Modal
+		include("view/modals/clientRegistrationModal.php");
 
-		//Include to Get Table
-		// include ("view/tables/monthlyPaymentTable.php");
-		include("view/tables/clientsListTable.php");
+		//Include Clients List Table
+		include ("view/tables/clientsListTable.php");
 
 		?>
 	</div>

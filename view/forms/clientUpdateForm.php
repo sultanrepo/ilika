@@ -1,45 +1,30 @@
 <?php
 
-$random_1 = "";
-$random_2 = "";
-$random_3 = "";
-$base_url = "https://ilika.com/client/";
-$complete_end_url = "/complete?username=XXXX";
-$terminate_end_url = "/terminate?username=XXXX";
-$quotafull_end_url = "/quotafull?username=XXXX";
-if (isset ($_POST['submit'])) {
+$c_id = $_GET['c_id'];
 
-    //Generate Client ID
-    $permitted_chars = '0123456789abcdef';
-    $random_1 = substr(str_shuffle($permitted_chars), 0, 8);
-    $random_2 = rand(1111, 9999);
-    $random_3 = substr(str_shuffle($permitted_chars), 0, 12);
-    $clientId = $random_1 . $random_2 . $random_3;
+$clientQuery = "SELECT * FROM `clients` WHERE c_id='$c_id'";
+$result = mysqli_query($conn, $clientQuery);
+$clientRows = mysqli_fetch_array($result);
+$name = $clientRows['c_name'];
+$desc = $clientRows['desc'];
+$note = $clientRows['note'];
+
+if (isset($_POST['submitUpdate'])) {
 
     // get form data
-    $name = $_POST['name'];
-    $description = $_POST['description'];
-    $note = $_POST['note'];
-    $redirect_type = "static";
-    $complete_url = $base_url . $clientId . $complete_end_url;
-    $terminate_url = $base_url . $clientId . $terminate_end_url;
-    $quotafull_url = $base_url . $clientId . $quotafull_end_url;
-    $status = '1';
+    $nameForm = $_POST['name'];
+    $descriptionForm = $_POST['description'];
+    $noteForm = $_POST['note'];
 
     // insert form data into database
-    $sql = "INSERT INTO `clients`
-            (`c_id`, `c_name`, `desc`, `note`, `redirect_type`, `complete_url`, 
-            `terminate_url`, `quotafull_url`, `status`) 
-            VALUES 
-            ('$clientId', '$name', '$description', '$note', '$redirect_type', '$complete_url', 
-            '$terminate_url', '$quotafull_url', '$status')";
+    $clientUpdateQuery = "UPDATE `clients` SET `c_name`='$nameForm',`desc`='$descriptionForm',`note`='$noteForm' WHERE c_id='$c_id'";
 
-    if (mysqli_query($conn, $sql)) {
+    if (mysqli_query($conn, $clientUpdateQuery)) {
         ?>
         <script>
             let timerInterval;
             Swal.fire({
-                title: "Registering New Client",
+                title: "Updateing Client Details",
                 html: "Please wait",
                 timer: 5000,
                 timerProgressBar: true,
@@ -59,7 +44,7 @@ if (isset ($_POST['submit'])) {
                     Swal.fire({
                         position: "center",
                         icon: "success",
-                        title: "New Client Registered Successfully",
+                        title: "Client Update Successfully",
                         showConfirmButton: false,
                         timer: 3000
                     });
@@ -73,6 +58,17 @@ if (isset ($_POST['submit'])) {
         <?php
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        ?>
+        <script>
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Error While Updateing Detials",
+                showConfirmButton: false,
+                timer: 3000
+            });
+        </script>
+        <?php
     }
 }
 
@@ -82,18 +78,20 @@ if (isset ($_POST['submit'])) {
 <form class="row g-3" method="post">
     <div class="col-12">
         <label for="inputEmail4" class="form-label">Name <span style="color:red">*</span></label>
-        <input type="text" class="form-control" id="inputEmail4" name="name">
+        <input type="text" class="form-control" id="inputEmail4" name="name" value="<?php echo $name; ?>">
     </div>
     <div class="col-12">
         <label for="exampleFormControlTextarea1">Description</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="description"></textarea>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"
+            name="description"><?php echo $desc; ?></textarea>
     </div>
     <div class="col-12">
         <label for="exampleFormControlTextarea1">Note</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="note"></textarea>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+            name="note"><?php echo $note; ?></textarea>
     </div>
     <div class="col-12">
-        <button name="submit" class="btn btn-primary">Register</button>
+        <button name="submitUpdate" class="btn btn-primary">Update</button>
         <button class="btn btn-danger">Cancel</button>
     </div>
 </form>

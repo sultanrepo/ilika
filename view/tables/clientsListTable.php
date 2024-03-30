@@ -137,8 +137,8 @@
 												} ?>
 											</td>
 											<td>
-												<i class="fa-solid fa-eye">View</i>
-												<i class="fas fa-edit">Edit</i>
+												<a href="clientViewDeails.php?c_id=<?php echo $c_id; ?>" ><button type="button" class="btn btn-link">👁 View</button></a>
+												<a href="clientUpdate.php?c_id=<?php echo $c_id; ?>" ><button type="button" class="btn btn-link">✎ Edit</button></a>
 											</td>
 										</tr>
 									<?php } ?>
