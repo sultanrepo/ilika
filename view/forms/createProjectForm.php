@@ -10,8 +10,7 @@ $desc = $clientRows['desc'];
 $note = $clientRows['note'];
 
 if (isset($_POST['createProject'])) {
-    print_r($_POST);
-
+    print_r($_POST['createProject']);
     $client_ID = $_POST['clientID'];
     $project_ID = $_POST['projectID'];
     $projName = $_POST['projectName'];
@@ -25,8 +24,6 @@ if (isset($_POST['createProject'])) {
 
     $liveLinkCountryCount = count($liveLinkCountry);
     $liveLinkCount = count($liveLink);
-    echo "<br>LiveCountry:-" . $liveLinkCountryCount;
-    echo "<br>LiveLink:-" . $liveLinkCount;
 
     $testCountry = $_POST['testCountry'];
     $testLink = $_POST['testLink'];
@@ -55,33 +52,25 @@ if (isset($_POST['createProject'])) {
                     timer: 5000
                 });
             </script>
-        <?php
-    } else if ($testCountry == 'NA' && $testLink == '') {
-        ?>
-                <script>
-                    Swal.fire({
-                        position: "center",
-                        icon: "error",
-                        title: "Select Test Link Country & Enter Test Link",
-                        showConfirmButton: false,
-                        timer: 5000
-                    });
-                </script>
-        <?php
+            <?php
+            return;
     } else {
         $createProjectQuery = "INSERT INTO `projects`
-        (`client_id`, `project_id`, `project_name`, `project_desc`, `pci`, `max_complate_limit`, `live_link_country_id`, 
+        (`client_id`, `project_id`, `project_name`, `project_desc`, `cpi`, `max_complate_limit`, `live_link_country_id`, 
         `test_link_country`, `test_link`, `cid_replacer`, `status`) 
         VALUES 
         ('$client_ID','$project_ID','$projName','$projectDesc','$cpi','$maxCompletes','$project_ID','$testCountry',
         '$testLink','$cidRep', 'pause')";
+        echo $createProjectQuery;
         $createProjectResult = mysqli_query($conn, $createProjectQuery);
+        print_r($createProjectResult);
         if ($createProjectResult) {
             $count = 0;
             for ($i = 0; $i < $liveLinkCountryCount; $i++) {
                 echo "<br>LiveCountry:-" . $liveLinkCountry[$i] . "<br> LiveLink:-" . $liveLink[$i];
                 $addLiveLinkQuery = "INSERT INTO `live_link`(`project_id`, `country`, `live_link`) 
                                     VALUES ('$project_ID','$liveLinkCountry[$i]','$liveLink[$i]')";
+                echo $addLiveLinkQuery;
                 $addLiveLinkResult = mysqli_query($conn, $addLiveLinkQuery);
                 if ($addLiveLinkQuery) {
                     $count++;
@@ -89,109 +78,57 @@ if (isset($_POST['createProject'])) {
             }
             if ($liveLinkCountryCount == $count) {
                 ?>
-                        <script>
-                            let timerInterval;
-                            Swal.fire({
-                                title: "Creating Project",
-                                html: "Please wait",
-                                timer: 3000,
-                                timerProgressBar: true,
-                                didOpen: () => {
-                                    Swal.showLoading();
-                                    const timer = Swal.getPopup().querySelector("b");
-                                    timerInterval = setInterval(() => {
-                                        timer.textContent = `${Swal.getTimerLeft()}`;
-                                    }, 100);
-                                },
-                                willClose: () => {
-                                    clearInterval(timerInterval);
-                                }
-                            }).then((result) => {
-                                /* Read more about handling dismissals below */
-                                if (result.dismiss === Swal.DismissReason.timer) {
-                                    Swal.fire({
-                                        position: "center",
-                                        icon: "success",
-                                        title: "Project Created Successfully",
-                                        showConfirmButton: false,
-                                        timer: 3000
-                                    });
-                                    console.log("I was closed by the timer");
-                                    setTimeout(function () {
-                                        window.location.href = "clients.php";
-                                    }, 3000);
-                                }
-                            });
-                        </script>
+                    <script>
+                        let timerInterval;
+                        Swal.fire({
+                            title: "Creating Project",
+                            html: "Please wait",
+                            timer: 3000,
+                            timerProgressBar: true,
+                            didOpen: () => {
+                                Swal.showLoading();
+                                const timer = Swal.getPopup().querySelector("b");
+                                timerInterval = setInterval(() => {
+                                    timer.textContent = `${Swal.getTimerLeft()}`;
+                                }, 100);
+                            },
+                            willClose: () => {
+                                clearInterval(timerInterval);
+                            }
+                        }).then((result) => {
+                            /* Read more about handling dismissals below */
+                            if (result.dismiss === Swal.DismissReason.timer) {
+                                Swal.fire({
+                                    position: "center",
+                                    icon: "success",
+                                    title: "Project Created Successfully",
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                });
+                                console.log("I was closed by the timer");
+                                setTimeout(function () {
+                                    window.location.href = "projects.php";
+                                }, 3000);
+                            }
+                        });
+                    </script>
                 <?php
             }
+        } else {
+            ?>
+                <script>
+                    Swal.fire({
+                        position: "center",
+                        icon: "error",
+                        title: "Something went wrong while Project Creataion",
+                        showConfirmButton: false,
+                        timer: 5000
+                    });
+                </script>
+            <?php
         }
     }
 }
-
-if (isset($_POST['submitUpdate'])) {
-
-    // get form data
-    $nameForm = $_POST['name'];
-    $descriptionForm = $_POST['description'];
-    $noteForm = $_POST['note'];
-
-    // insert form data into database
-    $clientUpdateQuery = "UPDATE `clients` SET `c_name`='$nameForm',`desc`='$descriptionForm',`note`='$noteForm' WHERE c_id='$c_id'";
-
-    if (mysqli_query($conn, $clientUpdateQuery)) {
-        ?>
-        <script>
-            let timerInterval;
-            Swal.fire({
-                title: "Updateing Client Details",
-                html: "Please wait",
-                timer: 5000,
-                timerProgressBar: true,
-                didOpen: () => {
-                    Swal.showLoading();
-                    const timer = Swal.getPopup().querySelector("b");
-                    timerInterval = setInterval(() => {
-                        timer.textContent = `${Swal.getTimerLeft()}`;
-                    }, 100);
-                },
-                willClose: () => {
-                    clearInterval(timerInterval);
-                }
-            }).then((result) => {
-                /* Read more about handling dismissals below */
-                if (result.dismiss === Swal.DismissReason.timer) {
-                    Swal.fire({
-                        position: "center",
-                        icon: "success",
-                        title: "Client Update Successfully",
-                        showConfirmButton: false,
-                        timer: 3000
-                    });
-                    console.log("I was closed by the timer");
-                    setTimeout(function () {
-                        window.location.href = "clients.php";
-                    }, 3000);
-                }
-            });
-        </script>
-        <?php
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        ?>
-        <script>
-            Swal.fire({
-                position: "center",
-                icon: "error",
-                title: "Error While Updateing Detials",
-                showConfirmButton: false,
-                timer: 3000
-            });
-        </script>
-        <?php
-    }
-}
-
 ?>
 
 <hr>

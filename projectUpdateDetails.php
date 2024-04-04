@@ -24,13 +24,12 @@ include ("includes/navBarLeft.php");
             <div class="d-flex">
                 <div class="d-flex flex-wrap justify-content-between flex-1">
                     <div class="mb-lg-0 mb-2 me-8">
-                        <h1 class="pg-title">Projects</h1>
+                        <h1 class="pg-title">Update Project Details</h1>
                         <p></p>
                     </div>
                     <div class="mb-lg-0 mb-2 me-8">
                         <!-- <h1 class="pg-title">New Clients</h1> -->
-                        <button type="button" class="btn btn-primary" onclick="redirectToPage('projectCreation.php')">New
-                            Project</button>
+                        <!-- <button type="button" class="btn btn-primary">New Client</button> -->
                         <p></p>
                     </div>
                 </div>
@@ -40,12 +39,11 @@ include ("includes/navBarLeft.php");
         <hr>
         <?php
 
-        //Include Client Registration Modal
-        include ("view/modals/clientRegistrationModal.php");
-
-        //Include Clients List Table
-        include ("view/tables/projectsListTable.php");
-
+        //Include Get Payment Details Form
+        // include("view/forms/monthlyPaymentDetailsForm.php");
+        
+        //Include Register New Client Form
+        include ("view/forms/updateProjectForm.php");
         ?>
     </div>
 

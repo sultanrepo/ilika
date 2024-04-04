@@ -279,69 +279,96 @@
 	});
 </script>
 <script>
-	// const form = document.getElementById('createProjectForm');
-	// form.addEventListener('submit', validateForm);
-	// function validateForm(event) {
-	// 	event.preventDefault();
-
-	// 	// // Clear all error messages
-	// 	// document.querySelectorAll('.error').forEach(error => error.textContent = '');
-
-	// 	// // Validate Clients
-	// 	// if (document.getElementById('Clients').value.trim() === 'na') {
-	// 	// 	document.getElementById('ClientsError').textContent = 'Please Select a value';
-	// 	// }
-
-	// 	// // Validate ProjectID
-	// 	// if (document.getElementById('projectID').value.trim() === '') {
-	// 	// 	document.getElementById('ProjectIDError').textContent = 'Please enter a value';
-	// 	// }
-
-	// 	// // Validate ProjectName
-	// 	// if (document.getElementById('projectName').value.trim() === '') {
-	// 	// 	document.getElementById('ProjectNameError').textContent = 'Please enter a value';
-	// 	// }
-
-	// 	// // Validate Description
-	// 	// if (document.getElementById('proDesc').value.trim() === '') {
-	// 	// 	document.getElementById('DescriptionError').textContent = 'Please enter a value';
-	// 	// }
-
-	// 	// // Validate CostPerComplete
-	// 	// if (isNaN(document.getElementById('cpi').value) || document.getElementById('cpi').value.trim() === '') {
-	// 	// 	document.getElementById('CostPerCompleteError').textContent = 'Please enter a valid number';
-	// 	// }
-
-	// 	// // Validate MaximumCompletes
-	// 	// if (isNaN(document.getElementById('maxLimit').value) || document.getElementById('maxLimit').value.trim() === '') {
-	// 	// 	document.getElementById('MaximumCompletesError').value.textContent = 'Please enter a valid number';
-	// 	// }
-
-	// 	// // Validate Live Link Country
-	// 	// if (document.getElementById('inputState').value.trim() === 'NA') {
-	// 	// 	document.getElementById('liveCountry').textContent = 'Please Select a value';
-	// 	// }
-
-	// 	// // Validate Live Link
-	// 	// if (document.getElementById('inputZip').value.trim() === '') {
-	// 	// 	document.getElementById('LiveLinkError').textContent = 'Please enter a value';
-	// 	// }
-
-	// 	// // Validate Test Link Country
-	// 	// if (document.getElementById('testCountry').value.trim() === 'NA') {
-	// 	// 	document.getElementById('testCountryError').textContent = 'Please Select a value';
-	// 	// }
-
-	// 	// // Validate Test Link
-	// 	// if (document.getElementById('testLink').value.trim() === '') {
-	// 	// 	document.getElementById('TestLinkError').textContent = 'Please enter a value';
-	// 	// }
-
-	// 	// // Validate Cid replacer
-	// 	// if (document.getElementById('cidRep').value.trim() === '') {
-	// 	// 	document.getElementById('CidreplacerError').textContent = 'Please enter a value';
-	// 	// }
-	// }
+	//For Verify Unique Project ID While Creating Project
+	$(document).ready(function () {
+		$('#projectID').on('blur', function () {
+			var textValue = $(this).val();
+			$.ajax({
+				url: 'Controller/api/verifyProjectID.php',
+				type: 'POST',
+				data: { projectID: textValue },
+				success: function (response) {
+					if (response == 'projectIdAvailable') {
+						$('#projectID').val('');
+						document.getElementById('ProjectIDError').textContent = 'Project Id Already Available';
+						$('#projectID').focus();
+					} else {
+						document.getElementById('ProjectIDError').textContent = '';
+						document.getElementById('ProjectIDError').textContent = '✔️';
+					}
+				},
+				error: function (jqXHR, textStatus, errorThrown) {
+					// Handle the error
+					console.error(textStatus, errorThrown);
+				}
+			});
+		});
+	});
+</script>
+<script>
+	//For Update The Project Status
+	function updateStatus(status) {
+		const projectIDStatus = status;
+		const StatusParts = projectIDStatus.split("^");
+		const projectID = StatusParts[0];
+		const projectStatus = StatusParts[1];
+		$.ajax({
+			url: 'Controller/api/updateProjectStatus.php',
+			type: 'POST',
+			data: {
+				projectID: projectID,
+				status: projectStatus
+			},
+			success: function (response) {
+				if (response == 'updated') {
+					let timerInterval;
+					Swal.fire({
+						title: "Updating Project Status",
+						html: "Please wait",
+						timer: 1500,
+						timerProgressBar: true,
+						didOpen: () => {
+							Swal.showLoading();
+							const timer = Swal.getPopup().querySelector("b");
+							timerInterval = setInterval(() => {
+								timer.textContent = `${Swal.getTimerLeft()}`;
+							}, 100);
+						},
+						willClose: () => {
+							clearInterval(timerInterval);
+						}
+					}).then((result) => {
+						/* Read more about handling dismissals below */
+						if (result.dismiss === Swal.DismissReason.timer) {
+							Swal.fire({
+								position: "center",
+								icon: "success",
+								title: "Project Status Updated",
+								showConfirmButton: false,
+								timer: 2000
+							});
+							console.log("I was closed by the timer");
+							setTimeout(function () {
+								window.location.reload();
+							}, 2000);
+						}
+					});
+				} else {
+					Swal.fire({
+						position: "center",
+						icon: "error",
+						title: "Something Went Wrong",
+						showConfirmButton: false,
+						timer: 2000
+					});
+				}
+			},
+			error: function (jqXHR, textStatus, errorThrown) {
+				// Handle the error
+				console.error(textStatus, errorThrown);
+			}
+		});
+	}
 </script>
 </body>
 

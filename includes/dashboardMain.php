@@ -149,7 +149,7 @@ $thisYearDonation = $rows5['totalAmount'];
 					<div class="card-header">Total <br> Clicks</div>
 					<div class="card-body">
 						<h5 class="card-title text-white">245
-							<?php //echo $totalCollection;   ?>
+							<?php //echo $totalCollection;    ?>
 						</h5>
 					</div>
 				</div>
@@ -159,7 +159,7 @@ $thisYearDonation = $rows5['totalAmount'];
 					<div class="card-header">Total <br> Completes</div>
 					<div class="card-body">
 						<h5 class="card-title text-white">2
-							<?php //echo $donationAmout;   ?>
+							<?php //echo $donationAmout;    ?>
 						</h5>
 					</div>
 				</div>
@@ -169,7 +169,7 @@ $thisYearDonation = $rows5['totalAmount'];
 					<div class="card-header">Total <br> Terminates</div>
 					<div class="card-body">
 						<h5 class="card-title text-white">114
-							<?php //echo $total_remaing_amount;   ?>
+							<?php //echo $total_remaing_amount;    ?>
 						</h5>
 					</div>
 				</div>
@@ -185,7 +185,7 @@ $thisYearDonation = $rows5['totalAmount'];
 			</div> -->
 			<!--<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">-->
 			<!--	<div class="card text-white bg-danger">-->
-			<!--		<div class="card-header">Pending Payment For "<?php //echo $monthName;    ?>" Month</div>-->
+			<!--		<div class="card-header">Pending Payment For "<?php //echo $monthName;     ?>" Month</div>-->
 			<!--		<div class="card-body">-->
 			<!--			<h5 class="card-title text-white">0 Members</h5>-->
 			<!--		</div>-->
