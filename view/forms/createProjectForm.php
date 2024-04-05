@@ -400,7 +400,7 @@ if (isset($_POST['createProject'])) {
     <hr>
     <div class="col-md-3">
         <label for="testCountry" class="form-label">Country</label>
-        <select id="testCountry" class="form-select" name="testCountry" required>
+        <select id="testCountry" class="form-select" name="testCountry">
             <option selected value="NA">Choose...</option>
             <option value="AF">Afghanistan 🇦🇫</option>
             <option value="AO">Angola 🇦🇴</option>
@@ -601,7 +601,7 @@ if (isset($_POST['createProject'])) {
     </div>
     <div class="col-md-6">
         <label for="testLink" class="form-label">Test Link</label>
-        <input type="text" class="form-control" id="testLink" name="testLink" required>
+        <input type="text" class="form-control" id="testLink" name="testLink">
         <span style="color:red" class="error" id="TestLinkError"></span>
     </div>
     <div class="col-12">
