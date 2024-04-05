@@ -46,7 +46,7 @@
 											</div>
 											<div class="card card-lg card-border" style="margin-top: -53px;">
 												<div class="card-body">
-													<h4 class="mb-4 text-center">Login to your account</h4>
+													<h4 class="mb-4 text-center">Login into your account</h4>
 													<div class="row gx-3">
 														<div class="form-group col-lg-12">
 															<div class="form-label-group">
