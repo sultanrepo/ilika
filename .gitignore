@@ -1,0 +1,2 @@
+# Ignore DBConfig directory
+/DBConfig/connection.php
