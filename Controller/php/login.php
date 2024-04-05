@@ -57,11 +57,11 @@ if ( $type === "mobile" ) {
             $_SESSION['user_id'] = $user_id;
             echo "success-" . $user_id;
             } else {
-                echo "error";
+                echo "error1";
             }
         }
     } else {
-        echo "error";
+        echo "error2";
     }
 }
 
