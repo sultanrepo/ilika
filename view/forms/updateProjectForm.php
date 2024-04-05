@@ -95,7 +95,7 @@ if (isset($_POST['saveChanges'])) {
                 //echo "<br>LiveCountry:-" . $liveLinkCountry[$i] . "<br> LiveLink:-" . $liveLink[$i];
                 //echo $liveLinkCountry[$i];
                 if ($liveLinkCountry[$i] == 'NA') {
-                    echo "12";
+                    
                 } else {
                     $addLiveLinkQuery = "INSERT INTO `live_link`(`project_id`, `country`, `live_link`) 
                     VALUES ('$project_ID','$liveLinkCountry[$i]','$liveLink[$i]')";
