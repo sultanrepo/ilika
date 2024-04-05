@@ -64,6 +64,4 @@ if ( $type === "mobile" ) {
         echo "error";
     }
 }
-
-
 ?>
