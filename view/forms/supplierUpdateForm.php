@@ -20,7 +20,6 @@ if (isset($_POST['submitUpdate'])) {
     $terminate_redirect_url = $_POST['terminateRedURL'];
     $quotafull_redirect_url = $_POST['quotafullRedURL'];
 
-
     // Update form data into database
     $supplierUpdateQuery = "UPDATE `suppliers` SET `supplier_name`='$supplier_name',`supplier_email`='$supplier_email',`complete_redirect_url`='$complete_redirect_url',`terminate_redirect_url`='$terminate_redirect_url',`quotafull_redirect_url`='$quotafull_redirect_url' WHERE supplier_id='$s_id'";
 
