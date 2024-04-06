@@ -142,9 +142,11 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <b>
-                                                    <?php echo $projName; ?>
-                                                </b>
+                                                <a href="projectViewDeails.php?project_id=<?php echo $project_ID; ?>">
+                                                    <b>
+                                                        <?php echo $projName; ?>
+                                                    </b>
+                                                </a>
                                             </td>
                                             <td>
                                                 <a href="clientViewDeails.php?c_id=<?php echo $client_ID; ?>">

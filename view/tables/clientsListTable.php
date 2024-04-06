@@ -96,11 +96,14 @@
 							<table id="datable_1" class="table nowrap w-100 mb-5">
 								<thead>
 									<tr>
-										<th><span class="form-check mb-0">
+										<th>
+											<span class="form-check mb-0">
 												<input type="checkbox" class="form-check-input check-select-all"
 													id="customCheck1">
 												<label class="form-check-label" for="customCheck1"></label>
-											</span></th>
+											</span>
+										</th>
+										<th><b>Serial No</b></th>
 										<th><b>Name</b></th>
 										<th><b>Status</b></th>
 										<th><b>Actions</b></th>
@@ -127,6 +130,9 @@
 												</div>
 											</td>
 											<td>
+												<?php echo $s_no; ?>
+											</td>
+											<td>
 												<?php echo $c_name; ?>
 											</td>
 											<td>
@@ -137,8 +143,10 @@
 												} ?>
 											</td>
 											<td>
-												<a href="clientViewDeails.php?c_id=<?php echo $c_id; ?>" ><button type="button" class="btn btn-link">👁 View</button></a>
-												<a href="clientUpdate.php?c_id=<?php echo $c_id; ?>" ><button type="button" class="btn btn-link">✎ Edit</button></a>
+												<a href="clientViewDeails.php?c_id=<?php echo $c_id; ?>"><button
+														type="button" class="btn btn-link">👁 View</button></a>
+												<a href="clientUpdate.php?c_id=<?php echo $c_id; ?>"><button type="button"
+														class="btn btn-link">✎ Edit</button></a>
 											</td>
 										</tr>
 									<?php } ?>
