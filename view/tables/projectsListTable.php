@@ -179,10 +179,26 @@
                                             <td>87</td>
                                             <td>12</td>
                                             <td>
-                                                <a href="projectViewDeails.php?project_id=<?php echo $project_ID; ?>"><button
-                                                        type="button" class="btn btn-link">👁 View</button></a>
-                                                <a href="projectUpdateDetails.php?project_id=<?php echo $project_ID; ?>"><button
-                                                        type="button" class="btn btn-link">✎ Edit</button></a>
+                                                <a href="projectUpdateDetails.php?project_id=<?php echo $project_ID; ?>"
+                                                    class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover"
+                                                    data-bs-toggle="tooltip" data-placement="top" title=""
+                                                    data-bs-original-title="Edit" href="edit-contact.html">
+                                                    <span class="icon">
+                                                        <span class="feather-icon">
+                                                            <i data-feather="edit"></i>
+                                                        </span>
+                                                    </span>
+                                                </a>
+                                                <a href="projectViewDeails.php?project_id=<?php echo $project_ID; ?>"
+                                                    class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover"
+                                                    data-bs-toggle="tooltip" data-placement="top" title=""
+                                                    data-bs-original-title="Edit" href="edit-contact.html">
+                                                    <span class="icon">
+                                                        <span class="feather-icon">
+                                                            <i data-feather="eye"></i>
+                                                        </span>
+                                                    </span>
+                                                </a>
                                             </td>
                                         </tr>
                                     <?php } ?>

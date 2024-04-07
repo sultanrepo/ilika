@@ -143,10 +143,27 @@
 												} ?>
 											</td>
 											<td>
-												<a href="clientViewDeails.php?c_id=<?php echo $c_id; ?>"><button
-														type="button" class="btn btn-link">👁 View</button></a>
-												<a href="clientUpdate.php?c_id=<?php echo $c_id; ?>"><button type="button"
-														class="btn btn-link">✎ Edit</button></a>
+
+												<a href="clientUpdate.php?c_id=<?php echo $c_id; ?>"
+													class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover"
+													data-bs-toggle="tooltip" data-placement="top" title=""
+													data-bs-original-title="Edit" href="edit-contact.html">
+													<span class="icon">
+														<span class="feather-icon">
+															<i data-feather="edit"></i>
+														</span>
+													</span>
+												</a>
+												<a href="clientViewDeails.php?c_id=<?php echo $c_id; ?>"
+													class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover"
+													data-bs-toggle="tooltip" data-placement="top" title=""
+													data-bs-original-title="Edit" href="edit-contact.html">
+													<span class="icon">
+														<span class="feather-icon">
+															<i data-feather="eye"></i>
+														</span>
+													</span>
+												</a>
 											</td>
 										</tr>
 									<?php } ?>
