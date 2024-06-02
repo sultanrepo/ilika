@@ -310,7 +310,7 @@ $clientName = $clientNameRows['c_name'];
     </div>
     <!-- /Page Body -->
     <!-- Include Suppliers List -->
-    <?php include ("view/tables/suppliersListTable.php"); ?>
+    <?php include ("view/tables/projectsSuppliersList.php"); ?>
 
     <!-- Page Footer -->
     <?php include ("footerContent.php"); ?>

@@ -44,6 +44,8 @@
 <!-- SweetAlert2 -->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 <!-- Profile Update Details Starts -->
 
 <!-- Upload Profile Photo -->
@@ -60,6 +62,11 @@
 
 <!-- Profile Update Details Ends -->
 
+<script>
+	$(document).ready(function () {
+		$('.js-example-basic-multiple').select2();
+	});
+</script>
 <script>
 	function redirectToPage(pageUrl) {
 		window.location.href = pageUrl;
@@ -370,6 +377,7 @@
 		});
 	}
 </script>
+
 </body>
 
 </html>
