@@ -69,7 +69,7 @@ if (isset($_POST['projectSuppliers'])) {
 
             $linkID = getLinkId();
             $_BASE_URL = "https://manual.ilikainsights.com";
-            $_LAST_URL = "/supplier/project/" . "$project_id" . "?linkid=" . "$linkID" . "&user=XXXX";
+            $_LAST_URL = "/supplier/project.php?pid=" . "$project_id" . "&linkid=" . "$linkID" . "&supplierid=" . "$supplierID" . "&user=XXXX";
             $supplier_url = $_BASE_URL . $_LAST_URL;
             $addSupplierLink = "INSERT INTO `projects_suppliers_link`
                 (`link_id`, `project_id`, `supplier_id`, `supplier_link`, `live_link_country`, `live_link`) VALUES 
@@ -157,7 +157,7 @@ if (isset($_POST['projectSuppliers'])) {
             $getProjectSuppliersCountQuery = "SELECT * FROM `projects_suppliers` WHERE project_id='$project_id'";
             $getProjectSuppliersCountResult = mysqli_query($conn, $getProjectSuppliersCountQuery);
             $getProjectSuppliersCount = mysqli_num_rows($getProjectSuppliersCountResult);
-            if ($getProjectSuppliersCount > 0 ) {
+            if ($getProjectSuppliersCount > 0) {
                 $getSuppliersQuery = "SELECT * FROM `projects_suppliers` WHERE project_id='$project_id'";
                 echo $getSuppliersQuery;
                 $supplierResult = mysqli_query($conn, $getSuppliersQuery);
@@ -172,7 +172,7 @@ if (isset($_POST['projectSuppliers'])) {
                 $notInClause = "'" . implode("', '", $supplier_idData) . "'";
                 $getOnlyNotMappedProjectSuppiersQuery = "SELECT * FROM `suppliers` WHERE supplier_id NOT IN ($notInClause)";
                 $getOnlyNotMappedProjectSuppiersResult = mysqli_query($conn, $getOnlyNotMappedProjectSuppiersQuery);
-                while($getOnlyNotMappedProjectSuppiersRows = mysqli_fetch_array($getOnlyNotMappedProjectSuppiersResult)) {
+                while ($getOnlyNotMappedProjectSuppiersRows = mysqli_fetch_array($getOnlyNotMappedProjectSuppiersResult)) {
                     $supplierID = $getOnlyNotMappedProjectSuppiersRows['supplier_id'];
                     $supplierName = $getOnlyNotMappedProjectSuppiersRows['supplier_name'];
                     $supplierEmail = $getOnlyNotMappedProjectSuppiersRows['supplier_email'];
@@ -189,14 +189,14 @@ if (isset($_POST['projectSuppliers'])) {
                     $supplierID = $supplierRows['supplier_id'];
                     $supplierName = $supplierRows['supplier_name'];
                     $supplierEmail = $supplierRows['supplier_email'];
-                ?>
-                <option value="<?php echo $supplierID; ?>">
-                    <?php echo $supplierEmail; ?>
-                </option>
-                <?php
+                    ?>
+                    <option value="<?php echo $supplierID; ?>">
+                        <?php echo $supplierEmail; ?>
+                    </option>
+                    <?php
+                }
             }
-            }
-            
+
             ?>
         </select>
     </div>

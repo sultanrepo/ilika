@@ -130,10 +130,14 @@
 												</div>
 											</td>
 											<td>
-												<?php echo $s_no; ?>
+												<a href="clientViewDeails.php?c_id=<?php echo $c_id; ?>">
+													<?php echo $s_no; ?>
+												</a>
 											</td>
 											<td>
-												<?php echo $c_name; ?>
+												<a href="clientViewDeails.php?c_id=<?php echo $c_id; ?>">
+													<?php echo $c_name; ?>
+												</a>
 											</td>
 											<td>
 												<?php if ($status == "1") {
@@ -157,7 +161,7 @@
 												<a href="clientViewDeails.php?c_id=<?php echo $c_id; ?>"
 													class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover"
 													data-bs-toggle="tooltip" data-placement="top" title=""
-													data-bs-original-title="Edit" href="edit-contact.html">
+													data-bs-original-title="View" href="edit-contact.html">
 													<span class="icon">
 														<span class="feather-icon">
 															<i data-feather="eye"></i>

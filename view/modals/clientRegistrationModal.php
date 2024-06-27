@@ -4,9 +4,10 @@ $random_1 = "";
 $random_2 = "";
 $random_3 = "";
 $base_url = "https://manual.ilika.com/client/";
-$complete_end_url = "/complete?username=XXXX";
-$terminate_end_url = "/terminate?username=XXXX";
-$quotafull_end_url = "/quotafull?username=XXXX";
+$complete_end_url = "/redirectsComplete?username=XXXX";
+$terminate_end_url = "/redirectsTerminate?username=XXXX";
+$quotafull_end_url = "/redirectsQuotafull?username=XXXX";
+$quality_terminate_end_url = "/quality_terminate?username=XXXX";
 if (isset($_POST['submit'])) {
 
     //Generate Client ID
@@ -24,15 +25,16 @@ if (isset($_POST['submit'])) {
     $complete_url = $base_url . $clientId . $complete_end_url;
     $terminate_url = $base_url . $clientId . $terminate_end_url;
     $quotafull_url = $base_url . $clientId . $quotafull_end_url;
+    $quality_terminate_url = $base_url . $clientId . $quality_terminate_end_url;
     $status = '1';
 
     // insert form data into database
     $sql = "INSERT INTO `clients`
             (`c_id`, `c_name`, `desc`, `note`, `redirect_type`, `complete_url`, 
-            `terminate_url`, `quotafull_url`, `status`) 
+            `terminate_url`, `quotafull_url`, `quality_terminate_url`, `status`) 
             VALUES 
             ('$clientId', '$name', '$description', '$note', '$redirect_type', '$complete_url', 
-            '$terminate_url', '$quotafull_url', '$status')";
+            '$terminate_url', '$quotafull_url', '$quality_terminate_url', '$status')";
 
     if (mysqli_query($conn, $sql)) {
         ?>

@@ -50,6 +50,7 @@ $redirect_type = $c_row['redirect_type'];
 $complete_url = $c_row['complete_url'];
 $terminate_url = $c_row['terminate_url'];
 $quotafull_url = $c_row['quotafull_url'];
+$quality_terminate_url = $c_row['quality_terminate_url'];
 $status = $c_row['status'];
 
 
@@ -211,6 +212,40 @@ $status = $c_row['status'];
                                             echo "NA";
                                         } else {
                                             echo $quotafull_url;
+                                        } ?>
+                                    </span>
+                                    <button id="copy-quotafull-button" type="button" class="btn btn-dark">Copy</button>
+                                    <script>
+                                        const copy_quotafull_Button = document.getElementById("copy-quotafull-button");
+                                        const url_quotafull_Span = document.getElementById("quotafull_url");
+                                        copy_quotafull_Button.addEventListener("click", () => {
+                                            // Create a new qutafull_textarea element
+                                            const qutafull_textarea = document.createElement("textarea");
+                                            // Set the value of the qutafull_textarea to the text from the span
+                                            qutafull_textarea.value = url_quotafull_Span.textContent;
+                                            // Add the qutafull_textarea to the document body
+                                            document.body.appendChild(qutafull_textarea);
+                                            // Select the text in the qutafull_textarea
+                                            qutafull_textarea.select();
+                                            // Copy the selected text to the clipboard
+                                            document.execCommand("copy");
+                                            // Remove the qutafull_textarea from the document body
+                                            document.body.removeChild(qutafull_textarea);
+                                        });
+                                    </script>
+                                </li>
+                                <hr>
+                                <li class="list-group-item border-0">
+                                    <span><i class="bi bi-house-door-fill text-disabled me-2"></i>
+                                        <span class="text-muted">
+                                            Quality Terminate URL:
+                                        </span>
+                                    </span>
+                                    <span class="ms-2" id="quotafull_url">
+                                        <?php if ($quality_terminate_url == null) {
+                                            echo "NA";
+                                        } else {
+                                            echo $quality_terminate_url;
                                         } ?>
                                     </span>
                                     <button id="copy-quotafull-button" type="button" class="btn btn-dark">Copy</button>

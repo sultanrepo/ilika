@@ -286,12 +286,13 @@
                                         $getSupplierIDRow = mysqli_fetch_array($getSupplierIDResult);
                                         $supplierID = $getSupplierIDRow['supplier_id'];
                                         //Getting Live Link Details
-                                        $getLiveLinksQuery = "SELECT * FROM `projects_suppliers_link` WHERE supplier_id='$supplierID'";
+                                        $getLiveLinksQuery = "SELECT * FROM `projects_suppliers_link` WHERE supplier_id='$supplierID' AND project_id='$project_id'";
                                         $getLiveLinksResult = mysqli_query($conn, $getLiveLinksQuery);
                                         $dataCount = 0;
                                         while ($getLiveLinksRow = mysqli_fetch_array($getLiveLinksResult)) {
                                             $dataCount++;
                                             $countryCode = $getLiveLinksRow['live_link_country'];
+                                            $supplier_link = $getLiveLinksRow['supplier_link'];
                                             $live_link = $getLiveLinksRow['live_link'];
                                             $getCountryNameQuery = "SELECT * FROM `countries` WHERE ISO='$countryCode'";
                                             $getCountryNameResult = mysqli_query($conn, $getCountryNameQuery);
@@ -301,7 +302,7 @@
                                             <tr class="table-active">
                                                 <th scope="row"><?php echo $dataCount; ?></th>
                                                 <td><?php echo $countryName; ?></td>
-                                                <td><?php echo $live_link; ?></td>
+                                                <td><?php echo $supplier_link; ?></td>
                                             </tr>
                                             <?php
                                         }
