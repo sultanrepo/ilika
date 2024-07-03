@@ -3,11 +3,11 @@
 $random_1 = "";
 $random_2 = "";
 $random_3 = "";
-$base_url = "https://manual.ilika.com/client/";
-$complete_end_url = "/redirectsComplete?username=XXXX";
-$terminate_end_url = "/redirectsTerminate?username=XXXX";
-$quotafull_end_url = "/redirectsQuotafull?username=XXXX";
-$quality_terminate_end_url = "/quality_terminate?username=XXXX";
+$base_url = "https://manual.ilika.com/client/client.php?clientid=";
+$complete_end_url = "&status=redirectsComplete&username=XXXX";
+$terminate_end_url = "&status=redirectsTerminate&username=XXXX";
+$quotafull_end_url = "&status=redirectsQuotafull&username=XXXX";
+$quality_terminate_end_url = "&status=qualityTerminate&username=XXXX";
 if (isset($_POST['submit'])) {
 
     //Generate Client ID

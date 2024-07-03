@@ -72,8 +72,8 @@ if (isset($_POST['projectSuppliers'])) {
             $_LAST_URL = "/supplier/project.php?pid=" . "$project_id" . "&linkid=" . "$linkID" . "&supplierid=" . "$supplierID" . "&user=XXXX";
             $supplier_url = $_BASE_URL . $_LAST_URL;
             $addSupplierLink = "INSERT INTO `projects_suppliers_link`
-                (`link_id`, `project_id`, `supplier_id`, `supplier_link`, `live_link_country`, `live_link`) VALUES 
-                ('$linkID', '$pro_id','$supplierID','$supplier_url','$liveLinkCountry','$liveLink')";
+                (`link_id`, `project_id`, `supplier_id`, `supplier_link`, `live_link_country`, `live_link`, `client_id`, `status`) VALUES 
+                ('$linkID', '$pro_id','$supplierID','$supplier_url','$liveLinkCountry','$liveLink','$client_id','paused')";
             $addSupplierLinkResult = mysqli_query($conn, $addSupplierLink);
         }
         if ($supplierResult) {

@@ -189,7 +189,7 @@ $clientName = $clientNameRows['c_name'];
                             <hr>
                             <h5>Client</h5>
                             <p>
-                                <a href="clientViewDeails.php?c_id=<?php echo $client_ID; ?>">
+                                <a href="clientViewDeails.php?c_id=<?php echo $client_id; ?>">
                                     <b>
                                         <?php echo $clientName; ?>
                                     </b>
