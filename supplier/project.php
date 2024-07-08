@@ -11,7 +11,6 @@ $getSupplierStatusQuery = "SELECT * FROM `projects_suppliers` WHERE supplier_id=
 $getSupplierStatusResult = mysqli_query($conn, $getSupplierStatusQuery);
 $supplierStatusRow = mysqli_fetch_array($getSupplierStatusResult);
 $supplierStatus = $supplierStatusRow['status'];
-print_r($supplierStatus);
 if ($supplierStatus == "live") {
     $updateSupplierStatusQuery = "UPDATE `projects_suppliers_link` SET `status`='live' WHERE `supplier_id`='$supplierid' AND `link_id`='$linkid'";
     $updateSupplierStatusResult = mysqli_query($conn, $updateSupplierStatusQuery);
