@@ -20,6 +20,25 @@ if ($supplierStatus == "live") {
         $getLiveLinkRow = mysqli_fetch_array($getLiveLinkResult);
         $liveLink = $getLiveLinkRow['live_link'];
         echo $liveLink;
+        //Update Click Count
+        $newClickCount == null;
+        $getLinkDataQuery = "SELECT * FROM `projects_suppliers_link` WHERE `supplier_id`='$supplierid' AND `link_id`='$linkid'";
+        echo $getLinkDataQuery;
+        $getLinkData = mysqli_query($conn, $getLinkDataQuery);
+        $getLinkDataRows = mysqli_fetch_array($getLinkData);
+        echo "<pre>";
+        print_r($getLinkDataRows);
+        $linkid = $getLinkDataRows['link_id'];
+        $clickCount = $getLinkDataRows['click'];
+        if ($clickCount == null) {
+            $newClickCount = "1";
+        } else {
+            $newClickCount = $clickCount + 1;
+        }
+        $updateClickCountQuery = "UPDATE `projects_suppliers_link` SET `quotafull`='$newQuotafullCount',`ipAdd`='$ipaddress' WHERE `supplier_id`='$supplierid' AND `link_id`='$linkid'";
+        if ($updateResult = mysqli_query($conn, $updateClickCountQuery)) {
+            echo "success";
+        }
         //header("Location: " . $liveLink);
     }
 } else {
