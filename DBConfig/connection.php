@@ -13,4 +13,11 @@ $conn = mysqli_connect($servername, $username, $password, $dataBase);
 // }
 // echo "Connected successfully";
 
+// $servername = "localhost";
+// $username = "u995737398_ilika_dev";//act
+// $password = "m@22=&[>Kh4";//Adam@81
+// $dataBase = "u995737398_ilika_dev";
+
+// $conn = mysqli_connect($servername, $username, $password, $dataBase);
+
 ?>

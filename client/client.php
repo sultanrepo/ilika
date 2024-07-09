@@ -20,8 +20,6 @@ if ($status == "redirectsComplete") {
     } else {
         $newCompleteCount = $completeCount + 1;
     }
-    $ipAddress = $_SERVER['REMOTE_ADDR'];
-    echo "Your IP address is: $ipAddress";
 
     $ipaddress = '';
     if (isset($_SERVER['HTTP_CLIENT_IP']))
@@ -40,7 +38,7 @@ if ($status == "redirectsComplete") {
         $ipaddress = 'UNKNOWN';
     echo $ipaddress;
 
-    $updateCompleteCountQuery = "UPDATE `projects_suppliers_link` SET `completes`='$newCompleteCount' WHERE client_id='$clientid' AND status='live'";
+    $updateCompleteCountQuery = "UPDATE `projects_suppliers_link` SET `completes`='$newCompleteCount',`ipAdd`='$ipaddress' WHERE client_id='$clientid' AND status='live'";
     if ($updateResult = mysqli_query($conn, $updateCompleteCountQuery)) {
         echo "Updated..!";
         //header("location: https://localhost/ilika/redirectsComplete.php");
