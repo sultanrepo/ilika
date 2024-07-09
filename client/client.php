@@ -41,7 +41,7 @@ if ($status == "redirectsComplete") {
     $updateCompleteCountQuery = "UPDATE `projects_suppliers_link` SET `completes`='$newCompleteCount',`ipAdd`='$ipaddress' WHERE client_id='$clientid' AND status='live'";
     if ($updateResult = mysqli_query($conn, $updateCompleteCountQuery)) {
         echo "Updated..!";
-        $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='[value-9]' WHERE client_id='$clientid' AND status='live'";
+        $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused' WHERE client_id='$clientid' AND status='live'";
         if ($updateResult = mysqli_query($conn, $updateCompleteStatus)) {
             echo "Status Updated..!";
         }
