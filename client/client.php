@@ -109,4 +109,30 @@ if ($status == "redirectsComplete") {
         echo "Error updating record: " . mysqli_error($conn);
     }
 } else if ($status == "qualityTerminate") {
+    $newQuotafullCount == null;
+    $getLinkDataQuery = "SELECT * FROM `projects_suppliers_link` WHERE `client_id`='$clientid' AND `status`='live'";
+    $getLinkData = mysqli_query($conn, $getLinkDataQuery);
+    $getLinkDataRows = mysqli_fetch_array($getLinkData);
+    echo "<pre>";
+    print_r($getLinkDataRows);
+    $linkid = $getLinkDataRows['link_id'];
+    $quotafullCount = $getLinkDataRows['quotafull'];
+    if ($quotafullCount == null) {
+        $newQuotafullCount = "1";
+    } else {
+        $newQuotafullCount = $quotafullCount + 1;
+    }
+
+    $ipaddress = getIPAddress();
+    $updateCompleteCountQuery = "UPDATE `projects_suppliers_link` SET `quotafull`='$newQuotafullCount',`ipAdd`='$ipaddress' WHERE client_id='$clientid' AND status='live'";
+    if ($updateResult = mysqli_query($conn, $updateCompleteCountQuery)) {
+        echo "Updated..!";
+        $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused' WHERE client_id='$clientid' AND status='live'";
+        if ($updateStatusResult = mysqli_query($conn, $updateCompleteStatus)) {
+            echo "Status Updated..!";
+        }
+        //header("location: https://localhost/ilika/redirectsComplete.php");
+    } else {
+        echo "Error updating record: " . mysqli_error($conn);
+    }
 }

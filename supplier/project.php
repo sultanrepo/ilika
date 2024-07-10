@@ -35,7 +35,7 @@ if ($supplierStatus == "live") {
         } else {
             $newClickCount = $clickCount + 1;
         }
-        $updateClickCountQuery = "UPDATE `projects_suppliers_link` SET `quotafull`='$newQuotafullCount',`ipAdd`='$ipaddress' WHERE `supplier_id`='$supplierid' AND `link_id`='$linkid'";
+        $updateClickCountQuery = "UPDATE `projects_suppliers_link` SET `click`='$newClickCount',`ipAdd`='$ipaddress' WHERE `supplier_id`='$supplierid' AND `link_id`='$linkid'";
         if ($updateResult = mysqli_query($conn, $updateClickCountQuery)) {
             echo "success";
         }
