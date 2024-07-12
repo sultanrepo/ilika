@@ -10,6 +10,8 @@ $user = $_GET['user'];
 $getSupplierStatusQuery = "SELECT * FROM `projects_suppliers` WHERE supplier_id='$supplierid' AND project_id='$pid'";
 $getSupplierStatusResult = mysqli_query($conn, $getSupplierStatusQuery);
 $supplierStatusRow = mysqli_fetch_array($getSupplierStatusResult);
+echo "<pre>";
+print_r($supplierStatusRow);
 $supplierStatus = $supplierStatusRow['status'];
 if ($supplierStatus == "live") {
     $updateSupplierStatusQuery = "UPDATE `projects_suppliers_link` SET `status`='live' WHERE `supplier_id`='$supplierid' AND `link_id`='$linkid'";
@@ -37,8 +39,8 @@ if ($supplierStatus == "live") {
         }
         $updateClickCountQuery = "UPDATE `projects_suppliers_link` SET `click`='$newClickCount',`ipAdd`='$ipaddress' WHERE `supplier_id`='$supplierid' AND `link_id`='$linkid'";
         if ($updateResult = mysqli_query($conn, $updateClickCountQuery)) {
-        header("Location: " . $liveLink);
-    }
+            header("Location: " . $liveLink);
+        }
     }
 } else {
     ?>
