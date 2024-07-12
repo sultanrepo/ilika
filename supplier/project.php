@@ -37,9 +37,8 @@ if ($supplierStatus == "live") {
         }
         $updateClickCountQuery = "UPDATE `projects_suppliers_link` SET `click`='$newClickCount',`ipAdd`='$ipaddress' WHERE `supplier_id`='$supplierid' AND `link_id`='$linkid'";
         if ($updateResult = mysqli_query($conn, $updateClickCountQuery)) {
-            echo "success";
-        }
-        //header("Location: " . $liveLink);
+        header("Location: " . $liveLink);
+    }
     }
 } else {
     ?>
