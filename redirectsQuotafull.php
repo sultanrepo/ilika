@@ -1,9 +1,9 @@
 <?php
 
-$pid = "V-254585";
-$username = "XXXXkjhjk";
+$pid = $_GET['pid'];
+$username = $_GET['username'];
 $status = "Quotafull";
-$ip = "14.21.254.215";
+$ip = $_GET['ipaddress'];
 
 ?>
 <!DOCTYPE html>

@@ -1,9 +1,9 @@
 <?php
 
-$pid = "V-254585";
-$username = "XXXXkjhjk";
+$pid = $_GET['pid'];
+$username = $_GET['username'];
 $status = "Terminate";
-$ip = "14.21.254.215";
+$ip = $_GET['ipaddress'];
 
 ?>
 <!DOCTYPE html>
@@ -58,7 +58,8 @@ $ip = "14.21.254.215";
                             <div class="auth-content py-md-0 py-8">
                                 <div class="row">
                                     <div class="col-xl-15 text-center">
-                                        <img src="dist/favIcon/termi.png" class="img-fluid w-sm-70 w-50" alt="Terminate" />
+                                        <img src="dist/favIcon/termi.png" class="img-fluid w-sm-70 w-50"
+                                            alt="Terminate" />
                                     </div>
                                 </div>
                             </div>
@@ -104,7 +105,7 @@ $ip = "14.21.254.215";
 
             <!-- Page Footer -->
             <?php
-            include("footerContent.php");
+            include ("footerContent.php");
             ?>
             <!-- / Page Footer -->
 
