@@ -35,6 +35,7 @@ if ($status == "redirectsComplete") {
     echo "<pre>";
     print_r($getLinkDataRows);
     $linkid = $getLinkDataRows['link_id'];
+    $project_id = $getLinkDataRows['project_id'];
     $completeCount = $getLinkDataRows['completes'];
     if ($completeCount == null) {
         $newCompleteCount = "1";
@@ -50,7 +51,7 @@ if ($status == "redirectsComplete") {
         if ($updateStatusResult = mysqli_query($conn, $updateCompleteStatus)) {
             echo "Status Updated..!";
         }
-        //header("location: https://localhost/ilika/redirectsComplete.php");
+        header("location: https://manual.ilikainsights.com/redirectsComplete.php?pid=" . $project_id . "&ipaddress=" . $ipaddress . "&username=" . $username);
     } else {
         echo "Error updating record: " . mysqli_error($conn);
     }
@@ -77,7 +78,7 @@ if ($status == "redirectsComplete") {
         if ($updateStatusResult = mysqli_query($conn, $updateCompleteStatus)) {
             echo "Status Updated..!";
         }
-        //header("location: https://localhost/ilika/redirectsComplete.php");
+        header("location: https://manual.ilikainsights.com/redirectsTerminate.php?pid=" . $project_id . "&ipaddress=" . $ipaddress . "&username=" . $username);
     } else {
         echo "Error updating record: " . mysqli_error($conn);
     }
@@ -104,7 +105,7 @@ if ($status == "redirectsComplete") {
         if ($updateStatusResult = mysqli_query($conn, $updateCompleteStatus)) {
             echo "Status Updated..!";
         }
-        //header("location: https://localhost/ilika/redirectsComplete.php");
+        header("location: https://manual.ilikainsights.com/redirectsQuotafull.php?pid=" . $project_id . "&ipaddress=" . $ipaddress . "&username=" . $username);
     } else {
         echo "Error updating record: " . mysqli_error($conn);
     }
@@ -131,7 +132,7 @@ if ($status == "redirectsComplete") {
         if ($updateStatusResult = mysqli_query($conn, $updateCompleteStatus)) {
             echo "Status Updated..!";
         }
-        //header("location: https://localhost/ilika/redirectsComplete.php");
+        header("location: https://manual.ilikainsights.com/redirectsQualityTerminate.php?pid=" . $project_id . "&ipaddress=" . $ipaddress . "&username=" . $username);
     } else {
         echo "Error updating record: " . mysqli_error($conn);
     }
