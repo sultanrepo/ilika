@@ -165,22 +165,22 @@ if (isset($_POST['createProject'])) {
     </div>
     <div class="col-12">
         <label for="desc">Description <span style="color:red">*</span></label>
-        <textarea class="form-control" id="proDesc" rows="5" name="description" required></textarea>
+        <textarea class="form-control" id="proDesc" rows="10" name="description" required></textarea>
         <span style="color:red" class="error" id="DescriptionError"></span>
     </div>
     <br>
     <label for="cpi" class="form-label">Cost Per Complete (CPI)<span style="color:red">*</span></label>
     <div class="input-group mb-3">
         <span class="input-group-text">$</span>
-        <input type="number" class="form-control" id="cpi" name="cpi" aria-label="Amount (to the nearest dollar)"
+        <input type="text" class="form-control" id="cpi" name="cpi" aria-label="Amount (to the nearest dollar)"
             required>
-        <span class="input-group-text">.00</span>
+        <!-- <span class="input-group-text">.00</span> -->
         <span style="color:red" class="error" id="CostPerCompleteError"></span>
     </div>
     <div class="col-12">
         <label for="maxLimit" class="form-label">Maximum Completes (Limit) <p>Input 0 for unlimited completes.</p>
             <span style="color:red">*</span></label>
-        <input type="number" class="form-control" id="maxLimit" name="maxCompLimit" value="0" required>
+        <input type="text" class="form-control" id="maxLimit" name="maxCompLimit" value="0" required>
         <span style="color:red" class="error" id="MaximumCompletesError"></span>
     </div>
     <hr>
