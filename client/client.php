@@ -62,6 +62,7 @@ if ($status == "redirectsComplete") {
     echo "<pre>";
     print_r($getLinkDataRows);
     $linkid = $getLinkDataRows['link_id'];
+    $project_id = $getLinkDataRows['project_id'];
     $terminateCount = $getLinkDataRows['terminates'];
     if ($terminateCount == null) {
         $newTerminateCount = "1";
@@ -90,6 +91,7 @@ if ($status == "redirectsComplete") {
     //echo "<pre>";
     //print_r($getLinkDataRows);
     $linkid = $getLinkDataRows['link_id'];
+    $project_id = $getLinkDataRows['project_id'];
     $quotafullCount = $getLinkDataRows['quotafull'];
     if ($quotafullCount == null) {
         $newQuotafullCount = "1";
@@ -116,6 +118,7 @@ if ($status == "redirectsComplete") {
     //echo "<pre>";
     //print_r($getLinkDataRows);
     $linkid = $getLinkDataRows['link_id'];
+    $project_id = $getLinkDataRows['project_id'];
     $quotafullCount = $getLinkDataRows['quotafull'];
     if ($quotafullCount == null) {
         $newQuotafullCount = "1";
