@@ -4,7 +4,7 @@ include ('../DBConfig/connection.php');
 print_r($_GET);
 $clientid = $_GET['clientid'];
 $status = $_GET['status'];
-$username = $_GET['user'];
+$username = $_GET['username'];
 
 //Get IP Address
 function getIPAddress()
