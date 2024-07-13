@@ -77,8 +77,7 @@ if ($status == "redirectsComplete") {
         $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused' WHERE client_id='$clientid' AND status='live'";
         echo "UPDATE `projects_suppliers_link` SET `status`='paused' WHERE client_id='$clientid' AND status='live'";
         if ($updateStatusResult = mysqli_query($conn, $updateCompleteStatus)) {
-            //header("location: https://manual.ilikainsights.com/redirectsTerminate.php?pid=" . $project_id . "&ipaddress=" . $ipaddress . "&username=" . $username);
-            echo " https://manual.ilikainsights.com/redirectsTerminate.php?pid=" . $project_id . "&ipaddress=" . $ipaddress . "&username=" . $username;
+            header("location: https://manual.ilikainsights.com/redirectsTerminate.php?pid=" . $project_id . "&ipaddress=" . $ipaddress . "&username=" . $username);
         }
     } else {
         echo "Error updating record: " . mysqli_error($conn);
