@@ -6,6 +6,11 @@ $clientid = $_GET['clientid'];
 $status = $_GET['status'];
 $username = $_GET['username'];
 
+// Set the time zone to Indian time zone (Asia/Kolkata)
+date_default_timezone_set('Asia/Kolkata');
+// Get the current timestamp in Indian time zone
+$timestamp = date('Y-m-d H:i:s');
+
 //Get IP Address
 function getIPAddress()
 {
@@ -47,7 +52,7 @@ if ($status == "redirectsComplete") {
     $updateCompleteCountQuery = "UPDATE `projects_suppliers_link` SET `completes`='$newCompleteCount',`ipAdd`='$ipaddress',`username`='$username' WHERE client_id='$clientid' AND status='live'";
     if ($updateResult = mysqli_query($conn, $updateCompleteCountQuery)) {
         echo "Updated..!";
-        $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused' WHERE client_id='$clientid' AND status='live'";
+        $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused',`timestamp`='$timestamp' WHERE client_id='$clientid' AND status='live'";
         if ($updateStatusResult = mysqli_query($conn, $updateCompleteStatus)) {
             header("location: https://manual.ilikainsights.com/redirectsComplete.php?pid=" . $project_id . "&ipaddress=" . $ipaddress . "&username=" . $username);
         }
@@ -74,8 +79,7 @@ if ($status == "redirectsComplete") {
     $updateCompleteCountQuery = "UPDATE `projects_suppliers_link` SET `terminates`='$newTerminateCount',`ipAdd`='$ipaddress',`username`='$username' WHERE client_id='$clientid' AND status='live'";
     if ($updateResult = mysqli_query($conn, $updateCompleteCountQuery)) {
         echo "Updated..!";
-        $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused' WHERE client_id='$clientid' AND status='live'";
-        echo "UPDATE `projects_suppliers_link` SET `status`='paused' WHERE client_id='$clientid' AND status='live'";
+        $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused',`timestamp`='$timestamp' WHERE client_id='$clientid' AND status='live'";
         if ($updateStatusResult = mysqli_query($conn, $updateCompleteStatus)) {
             header("location: https://manual.ilikainsights.com/redirectsTerminate.php?pid=" . $project_id . "&ipaddress=" . $ipaddress . "&username=" . $username);
         }
@@ -102,7 +106,7 @@ if ($status == "redirectsComplete") {
     $updateCompleteCountQuery = "UPDATE `projects_suppliers_link` SET `quotafull`='$newQuotafullCount',`ipAdd`='$ipaddress',`username`='$username' WHERE client_id='$clientid' AND status='live'";
     if ($updateResult = mysqli_query($conn, $updateCompleteCountQuery)) {
         echo "Updated..!";
-        $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused' WHERE client_id='$clientid' AND status='live'";
+        $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused',`timestamp`='$timestamp' WHERE client_id='$clientid' AND status='live'";
         if ($updateStatusResult = mysqli_query($conn, $updateCompleteStatus)) {
             header("location: https://manual.ilikainsights.com/redirectsQuotafull.php?pid=" . $project_id . "&ipaddress=" . $ipaddress . "&username=" . $username);
         }
@@ -129,7 +133,7 @@ if ($status == "redirectsComplete") {
     $updateCompleteCountQuery = "UPDATE `projects_suppliers_link` SET `quotafull`='$newQuotafullCount',`ipAdd`='$ipaddress',`username`='$username' WHERE client_id='$clientid' AND status='live'";
     if ($updateResult = mysqli_query($conn, $updateCompleteCountQuery)) {
         echo "Updated..!";
-        $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused' WHERE client_id='$clientid' AND status='live'";
+        $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused',`timestamp`='$timestamp' WHERE client_id='$clientid' AND status='live'";
         if ($updateStatusResult = mysqli_query($conn, $updateCompleteStatus)) {
             header("location: https://manual.ilikainsights.com/redirectsQualityTerminate.php?pid=" . $project_id . "&ipaddress=" . $ipaddress . "&username=" . $username);
         }

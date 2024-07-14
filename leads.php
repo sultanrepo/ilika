@@ -36,10 +36,7 @@ include ("includes/warningRemove.php");
         <!-- /Page Header -->
         <hr>
         <?php
-
-        //Include Client Registration Modal
-        include ("view/modals/supplierRegisrationModel.php");
-
+        
         //Include Clients List Table
         include ("view/tables/leadsListTable.php");
 
