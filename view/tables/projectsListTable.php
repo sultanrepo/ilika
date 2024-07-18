@@ -101,6 +101,7 @@
                                                     id="customCheck1">
                                                 <label class="form-check-label" for="customCheck1"></label>
                                             </span></th>
+                                        <th><b>S No.</b></th>
                                         <th><b>Name</b></th>
                                         <th><b>Client</b></th>
                                         <th><b>PID (Client)</b></th>
@@ -114,11 +115,12 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $query3 = "SELECT * FROM `projects`";
+                                    $query3 = "SELECT * FROM `projects` ORDER BY id DESC";
                                     $result3 = mysqli_query($conn, $query3);
                                     while ($rows3 = mysqli_fetch_array($result3)) {
                                         // echo "<pre>";
-                                        // print_r($rows1);
+                                        // print_r($rows3);
+                                        $id = $rows3['id'];
                                         $client_ID = $rows3['client_id'];
                                         $project_ID = $rows3['project_id'];
                                         $projName = $rows3['project_name'];
@@ -141,6 +143,7 @@
                                                     <!-- <span class="contact-star marked"><span class="feather-icon"><i data-feather="star"></i></span></span> -->
                                                 </div>
                                             </td>
+                                            <td><?php echo $id; ?></td>
                                             <td>
                                                 <a href="projectViewDeails.php?project_id=<?php echo $project_ID; ?>">
                                                     <b>
