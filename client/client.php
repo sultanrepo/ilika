@@ -41,6 +41,7 @@ if ($status == "redirectsComplete") {
     //print_r($getLinkDataRows);
     $linkid = $getLinkDataRows['link_id'];
     $project_id = $getLinkDataRows['project_id'];
+    $supplier_id = $getLinkDataRows['supplier_id'];
     $completeCount = $getLinkDataRows['completes'];
     if ($completeCount == null) {
         $newCompleteCount = "1";
@@ -52,6 +53,12 @@ if ($status == "redirectsComplete") {
     $updateCompleteCountQuery = "UPDATE `projects_suppliers_link` SET `completes`='$newCompleteCount',`ipAdd`='$ipaddress',`username`='$username' WHERE client_id='$clientid' AND status='live'";
     if ($updateResult = mysqli_query($conn, $updateCompleteCountQuery)) {
         echo "Updated..!";
+
+        $insertStatus = "INSERT INTO `projects_suppliers_link_status`
+        (`p_id`, `link_id`, `project_id`, `sipplier_id`, `client_id`, `status`, `ip_address`, `username`, `timestamp`) VALUES 
+        ('$project_id','$linkid','$project_id','$supplier_id','$clientid','redirectsComplete','$ipaddress','$username','$timestamp')";
+        $insertStatusResult = mysqli_query($conn, $insertStatus);
+
         $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused',`timestamp`='$timestamp' WHERE client_id='$clientid' AND status='live'";
         if ($updateStatusResult = mysqli_query($conn, $updateCompleteStatus)) {
             header("location: https://manual.ilikainsights.com/redirectsComplete.php?pid=" . $project_id . "&ipaddress=" . $ipaddress . "&username=" . $username);
@@ -68,6 +75,7 @@ if ($status == "redirectsComplete") {
     print_r($getLinkDataRows);
     $linkid = $getLinkDataRows['link_id'];
     $project_id = $getLinkDataRows['project_id'];
+    $supplier_id = $getLinkDataRows['supplier_id'];
     $terminateCount = $getLinkDataRows['terminates'];
     if ($terminateCount == null) {
         $newTerminateCount = "1";
@@ -79,6 +87,12 @@ if ($status == "redirectsComplete") {
     $updateCompleteCountQuery = "UPDATE `projects_suppliers_link` SET `terminates`='$newTerminateCount',`ipAdd`='$ipaddress',`username`='$username' WHERE client_id='$clientid' AND status='live'";
     if ($updateResult = mysqli_query($conn, $updateCompleteCountQuery)) {
         echo "Updated..!";
+
+        $insertStatus = "INSERT INTO `projects_suppliers_link_status`
+        (`p_id`, `link_id`, `project_id`, `sipplier_id`, `client_id`, `status`, `ip_address`, `username`, `timestamp`) VALUES 
+        ('$project_id','$linkid','$project_id','$supplier_id','$clientid','redirectsTerminate','$ipaddress','$username','$timestamp')";
+        $insertStatusResult = mysqli_query($conn, $insertStatus);
+
         $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused',`timestamp`='$timestamp' WHERE client_id='$clientid' AND status='live'";
         if ($updateStatusResult = mysqli_query($conn, $updateCompleteStatus)) {
             header("location: https://manual.ilikainsights.com/redirectsTerminate.php?pid=" . $project_id . "&ipaddress=" . $ipaddress . "&username=" . $username);
@@ -95,6 +109,7 @@ if ($status == "redirectsComplete") {
     //print_r($getLinkDataRows);
     $linkid = $getLinkDataRows['link_id'];
     $project_id = $getLinkDataRows['project_id'];
+    $supplier_id = $getLinkDataRows['supplier_id'];
     $quotafullCount = $getLinkDataRows['quotafull'];
     if ($quotafullCount == null) {
         $newQuotafullCount = "1";
@@ -106,6 +121,12 @@ if ($status == "redirectsComplete") {
     $updateCompleteCountQuery = "UPDATE `projects_suppliers_link` SET `quotafull`='$newQuotafullCount',`ipAdd`='$ipaddress',`username`='$username' WHERE client_id='$clientid' AND status='live'";
     if ($updateResult = mysqli_query($conn, $updateCompleteCountQuery)) {
         echo "Updated..!";
+
+        $insertStatus = "INSERT INTO `projects_suppliers_link_status`
+        (`p_id`, `link_id`, `project_id`, `sipplier_id`, `client_id`, `status`, `ip_address`, `username`, `timestamp`) VALUES 
+        ('$project_id','$linkid','$project_id','$supplier_id','$clientid','redirectsQuotafull','$ipaddress','$username','$timestamp')";
+        $insertStatusResult = mysqli_query($conn, $insertStatus);
+
         $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused',`timestamp`='$timestamp' WHERE client_id='$clientid' AND status='live'";
         if ($updateStatusResult = mysqli_query($conn, $updateCompleteStatus)) {
             header("location: https://manual.ilikainsights.com/redirectsQuotafull.php?pid=" . $project_id . "&ipaddress=" . $ipaddress . "&username=" . $username);
@@ -122,6 +143,7 @@ if ($status == "redirectsComplete") {
     //print_r($getLinkDataRows);
     $linkid = $getLinkDataRows['link_id'];
     $project_id = $getLinkDataRows['project_id'];
+    $supplier_id = $getLinkDataRows['supplier_id'];
     $quotafullCount = $getLinkDataRows['quotafull'];
     if ($quotafullCount == null) {
         $newQuotafullCount = "1";
@@ -133,6 +155,12 @@ if ($status == "redirectsComplete") {
     $updateCompleteCountQuery = "UPDATE `projects_suppliers_link` SET `quotafull`='$newQuotafullCount',`ipAdd`='$ipaddress',`username`='$username' WHERE client_id='$clientid' AND status='live'";
     if ($updateResult = mysqli_query($conn, $updateCompleteCountQuery)) {
         echo "Updated..!";
+
+        $insertStatus = "INSERT INTO `projects_suppliers_link_status`
+        (`p_id`, `link_id`, `project_id`, `sipplier_id`, `client_id`, `status`, `ip_address`, `username`, `timestamp`) VALUES 
+        ('$project_id','$linkid','$project_id','$supplier_id','$clientid','qualityTerminate','$ipaddress','$username','$timestamp')";
+        $insertStatusResult = mysqli_query($conn, $insertStatus);
+
         $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused',`timestamp`='$timestamp' WHERE client_id='$clientid' AND status='live'";
         if ($updateStatusResult = mysqli_query($conn, $updateCompleteStatus)) {
             header("location: https://manual.ilikainsights.com/redirectsQualityTerminate.php?pid=" . $project_id . "&ipaddress=" . $ipaddress . "&username=" . $username);
