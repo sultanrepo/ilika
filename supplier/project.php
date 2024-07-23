@@ -26,11 +26,15 @@ if ($supplierStatus == "live") {
                     font-family: Arial, sans-serif;
                     text-align: center;
                 }
+
+                #mesg {
+                    color: #FF0000;
+                }
             </style>
         </head>
 
         <body>
-            <h1>You haven't entered STRING</h1>
+            <h1 id="mesg">You haven't entered STRING</h1>
         </body>
 
         </html>
