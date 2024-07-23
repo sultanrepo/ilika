@@ -1,7 +1,7 @@
 <?php
 
 include ('../DBConfig/connection.php');
-print_r($_GET);
+// print_r($_GET);
 $pid = $_GET['pid'];
 $linkid = $_GET['linkid'];
 $supplierid = $_GET['supplierid'];
