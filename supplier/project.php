@@ -48,6 +48,15 @@ if ($supplierStatus == "live") {
             $getLiveLinkRow = mysqli_fetch_array($getLiveLinkResult);
             $liveLink = $getLiveLinkRow['live_link'];
             echo "Live Link:-" . $liveLink;
+            //Get LeadID
+            $getLeadDetails = "SELECT lead_id FROM `projects_suppliers_link_status` ORDER BY s_no DESC LIMIT 1";
+            $getLeadDetailsResult = mysqli_query($conn, $getLeadDetails);
+            $getLeadDetailsRow = mysqli_fetch_array($getLeadDetailsResult);
+            $lead_id = $getLeadDetailsRow['lead_id'];
+            $lead_id = "IINS0002";
+            $new_lead_id = str_replace("IINS", "", $lead_id);
+            $new_lead_id = str_pad((int) $new_lead_id + 1, 4, '0', STR_PAD_LEFT);
+            echo $new_lead_id; // Outputs: 0202
             //Update Click Count
             $newClickCount == null;
             $getLinkDataQuery = "SELECT * FROM `projects_suppliers_link` WHERE `supplier_id`='$supplierid' AND `link_id`='$linkid'";
