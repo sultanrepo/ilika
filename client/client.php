@@ -50,7 +50,7 @@ if ($status == "redirectsComplete") {
     }
 
     $ipaddress = getIPAddress();
-    $updateCompleteCountQuery = "UPDATE `projects_suppliers_link` SET `completes`='$newCompleteCount',`ipAdd`='$ipaddress',`username`='$username' WHERE client_id='$clientid' AND status='live'";
+    $updateCompleteCountQuery = "UPDATE `projects_suppliers_link` SET `completes`='$newCompleteCount',`ipAdd`='$ipaddress' WHERE client_id='$clientid' AND status='live'";
     if ($updateResult = mysqli_query($conn, $updateCompleteCountQuery)) {
         echo "Updated..!";
 
