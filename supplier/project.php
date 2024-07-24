@@ -47,7 +47,7 @@ if ($supplierStatus == "live") {
             $getLiveLinkResult = mysqli_query($conn, $getLiveLinkQuery);
             $getLiveLinkRow = mysqli_fetch_array($getLiveLinkResult);
             $liveLink = $getLiveLinkRow['live_link'];
-            echo $liveLink;
+            echo "Live Link:-" . $liveLink;
             //Update Click Count
             $newClickCount == null;
             $getLinkDataQuery = "SELECT * FROM `projects_suppliers_link` WHERE `supplier_id`='$supplierid' AND `link_id`='$linkid'";
@@ -56,6 +56,7 @@ if ($supplierStatus == "live") {
             $getLinkDataRows = mysqli_fetch_array($getLinkData);
             echo "<pre>";
             print_r($getLinkDataRows);
+            exit();
             $linkid = $getLinkDataRows['link_id'];
             $clickCount = $getLinkDataRows['click'];
             if ($clickCount == null) {
