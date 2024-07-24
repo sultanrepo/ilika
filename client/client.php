@@ -84,7 +84,7 @@ if ($status == "redirectsComplete") {
     }
 
     $ipaddress = getIPAddress();
-    $updateCompleteCountQuery = "UPDATE `projects_suppliers_link` SET `terminates`='$newTerminateCount',`ipAdd`='$ipaddress',`username`='$username' WHERE client_id='$clientid' AND status='live'";
+    $updateCompleteCountQuery = "UPDATE `projects_suppliers_link` SET `terminates`='$newTerminateCount',`ipAdd`='$ipaddress' WHERE client_id='$clientid' AND status='live'";
     if ($updateResult = mysqli_query($conn, $updateCompleteCountQuery)) {
         echo "Updated..!";
 
@@ -118,7 +118,7 @@ if ($status == "redirectsComplete") {
     }
 
     $ipaddress = getIPAddress();
-    $updateCompleteCountQuery = "UPDATE `projects_suppliers_link` SET `quotafull`='$newQuotafullCount',`ipAdd`='$ipaddress',`username`='$username' WHERE client_id='$clientid' AND status='live'";
+    $updateCompleteCountQuery = "UPDATE `projects_suppliers_link` SET `quotafull`='$newQuotafullCount',`ipAdd`='$ipaddress' WHERE client_id='$clientid' AND status='live'";
     if ($updateResult = mysqli_query($conn, $updateCompleteCountQuery)) {
         echo "Updated..!";
 
@@ -152,7 +152,7 @@ if ($status == "redirectsComplete") {
     }
 
     $ipaddress = getIPAddress();
-    $updateCompleteCountQuery = "UPDATE `projects_suppliers_link` SET `quotafull`='$newQuotafullCount',`ipAdd`='$ipaddress',`username`='$username' WHERE client_id='$clientid' AND status='live'";
+    $updateCompleteCountQuery = "UPDATE `projects_suppliers_link` SET `quotafull`='$newQuotafullCount',`ipAdd`='$ipaddress' WHERE client_id='$clientid' AND status='live'";
     if ($updateResult = mysqli_query($conn, $updateCompleteCountQuery)) {
         echo "Updated..!";
 
