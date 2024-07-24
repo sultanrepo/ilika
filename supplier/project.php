@@ -43,6 +43,7 @@ if ($supplierStatus == "live") {
         $updateSupplierStatusQuery = "UPDATE `projects_suppliers_link` SET `status`='live' WHERE `supplier_id`='$supplierid' AND `link_id`='$linkid'";
         $updateSupplierStatusResult = mysqli_query($conn, $updateSupplierStatusQuery);
         if ($updateSupplierStatusResult) {
+            //Getting Live Link
             $getLiveLinkQuery = "SELECT * FROM `projects_suppliers_link` WHERE link_id='$linkid'";
             $getLiveLinkResult = mysqli_query($conn, $getLiveLinkQuery);
             $getLiveLinkRow = mysqli_fetch_array($getLiveLinkResult);

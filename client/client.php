@@ -43,6 +43,7 @@ if ($status == "redirectsComplete") {
     $project_id = $getLinkDataRows['project_id'];
     $supplier_id = $getLinkDataRows['supplier_id'];
     $completeCount = $getLinkDataRows['completes'];
+    $dbusername = $getLinkDataRows['username'];
     if ($completeCount == null) {
         $newCompleteCount = "1";
     } else {
@@ -56,7 +57,7 @@ if ($status == "redirectsComplete") {
 
         $insertStatus = "INSERT INTO `projects_suppliers_link_status`
         (`lead_id`, `p_id`, `link_id`, `project_id`, `sipplier_id`, `client_id`, `status`, `ip_address`, `username`, `timestamp`) VALUES 
-        ('$username','$project_id','$linkid','$project_id','$supplier_id','$clientid','redirectsComplete','$ipaddress','$username','$timestamp')";
+        ('$username','$project_id','$linkid','$project_id','$supplier_id','$clientid','redirectsComplete','$ipaddress','$dbusername','$timestamp')";
         $insertStatusResult = mysqli_query($conn, $insertStatus);
 
         $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused',`timestamp`='$timestamp' WHERE client_id='$clientid' AND status='live'";
@@ -77,6 +78,7 @@ if ($status == "redirectsComplete") {
     $project_id = $getLinkDataRows['project_id'];
     $supplier_id = $getLinkDataRows['supplier_id'];
     $terminateCount = $getLinkDataRows['terminates'];
+    $dbusername = $getLinkDataRows['username'];
     if ($terminateCount == null) {
         $newTerminateCount = "1";
     } else {
@@ -90,7 +92,7 @@ if ($status == "redirectsComplete") {
 
         $insertStatus = "INSERT INTO `projects_suppliers_link_status`
         (`lead_id`, `p_id`, `link_id`, `project_id`, `sipplier_id`, `client_id`, `status`, `ip_address`, `username`, `timestamp`) VALUES 
-        ('$username','$project_id','$linkid','$project_id','$supplier_id','$clientid','redirectsTerminate','$ipaddress','$username','$timestamp')";
+        ('$username','$project_id','$linkid','$project_id','$supplier_id','$clientid','redirectsTerminate','$ipaddress','$dbusername','$timestamp')";
         $insertStatusResult = mysqli_query($conn, $insertStatus);
 
         $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused',`timestamp`='$timestamp' WHERE client_id='$clientid' AND status='live'";
@@ -111,6 +113,7 @@ if ($status == "redirectsComplete") {
     $project_id = $getLinkDataRows['project_id'];
     $supplier_id = $getLinkDataRows['supplier_id'];
     $quotafullCount = $getLinkDataRows['quotafull'];
+    $dbusername = $getLinkDataRows['username'];
     if ($quotafullCount == null) {
         $newQuotafullCount = "1";
     } else {
@@ -124,7 +127,7 @@ if ($status == "redirectsComplete") {
 
         $insertStatus = "INSERT INTO `projects_suppliers_link_status`
         (`lead_id`, `p_id`, `link_id`, `project_id`, `sipplier_id`, `client_id`, `status`, `ip_address`, `username`, `timestamp`) VALUES 
-        ('$username','$project_id','$linkid','$project_id','$supplier_id','$clientid','redirectsQuotafull','$ipaddress','$username','$timestamp')";
+        ('$username','$project_id','$linkid','$project_id','$supplier_id','$clientid','redirectsQuotafull','$ipaddress','$dbusername','$timestamp')";
         $insertStatusResult = mysqli_query($conn, $insertStatus);
 
         $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused',`timestamp`='$timestamp' WHERE client_id='$clientid' AND status='live'";
@@ -145,6 +148,7 @@ if ($status == "redirectsComplete") {
     $project_id = $getLinkDataRows['project_id'];
     $supplier_id = $getLinkDataRows['supplier_id'];
     $quotafullCount = $getLinkDataRows['quotafull'];
+    $dbusername = $getLinkDataRows['username'];
     if ($quotafullCount == null) {
         $newQuotafullCount = "1";
     } else {
@@ -156,14 +160,9 @@ if ($status == "redirectsComplete") {
     if ($updateResult = mysqli_query($conn, $updateCompleteCountQuery)) {
         echo "Updated..!";
 
-        $getUsernameQuery = "SELECT * FROM `projects_suppliers_link` WHERE link_id='$linkid' AND project_id='$project_id' AND supplier_id='$supplier_id'";
-        $getUsername = mysqli_query($conn, $getUsernameQuery);
-        $getUsernameRows = mysqli_fetch_array($getUsername);
-        $usernameQuery = $getUsernameRows['username'];
-
         $insertStatus = "INSERT INTO `projects_suppliers_link_status`
         (`lead_id`, `p_id`, `link_id`, `project_id`, `sipplier_id`, `client_id`, `status`, `ip_address`, `username`, `timestamp`) VALUES 
-        ('$username','$project_id','$linkid','$project_id','$supplier_id','$clientid','qualityTerminate','$ipaddress','$usernameQuery','$timestamp')";
+        ('$username','$project_id','$linkid','$project_id','$supplier_id','$clientid','qualityTerminate','$ipaddress','$dbusername','$timestamp')";
         $insertStatusResult = mysqli_query($conn, $insertStatus);
 
         $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused',`timestamp`='$timestamp' WHERE client_id='$clientid' AND status='live'";
