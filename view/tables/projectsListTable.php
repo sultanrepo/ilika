@@ -101,7 +101,7 @@
                                                     id="customCheck1">
                                                 <label class="form-check-label" for="customCheck1"></label>
                                             </span></th>
-                                        <th><b>S No.</b></th>
+                                        <th><b>Project ID</b></th>
                                         <th><b>Name</b></th>
                                         <th><b>Client</b></th>
                                         <th><b>PID (Client)</b></th>
@@ -143,7 +143,7 @@
                                                     <!-- <span class="contact-star marked"><span class="feather-icon"><i data-feather="star"></i></span></span> -->
                                                 </div>
                                             </td>
-                                            <td><?php echo $id; ?></td>
+                                            <td>II<?php echo $id; ?></td>
                                             <td>
                                                 <a href="projectViewDeails.php?project_id=<?php echo $project_ID; ?>">
                                                     <b>
