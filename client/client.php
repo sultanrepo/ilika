@@ -55,8 +55,8 @@ if ($status == "redirectsComplete") {
         echo "Updated..!";
 
         $insertStatus = "INSERT INTO `projects_suppliers_link_status`
-        (`p_id`, `link_id`, `project_id`, `sipplier_id`, `client_id`, `status`, `ip_address`, `username`, `timestamp`) VALUES 
-        ('$project_id','$linkid','$project_id','$supplier_id','$clientid','redirectsComplete','$ipaddress','$username','$timestamp')";
+        (`lead_id`, `p_id`, `link_id`, `project_id`, `sipplier_id`, `client_id`, `status`, `ip_address`, `username`, `timestamp`) VALUES 
+        ('$username','$project_id','$linkid','$project_id','$supplier_id','$clientid','redirectsComplete','$ipaddress','$username','$timestamp')";
         $insertStatusResult = mysqli_query($conn, $insertStatus);
 
         $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused',`timestamp`='$timestamp' WHERE client_id='$clientid' AND status='live'";
@@ -89,8 +89,8 @@ if ($status == "redirectsComplete") {
         echo "Updated..!";
 
         $insertStatus = "INSERT INTO `projects_suppliers_link_status`
-        (`p_id`, `link_id`, `project_id`, `sipplier_id`, `client_id`, `status`, `ip_address`, `username`, `timestamp`) VALUES 
-        ('$project_id','$linkid','$project_id','$supplier_id','$clientid','redirectsTerminate','$ipaddress','$username','$timestamp')";
+        (`lead_id`, `p_id`, `link_id`, `project_id`, `sipplier_id`, `client_id`, `status`, `ip_address`, `username`, `timestamp`) VALUES 
+        ('$username','$project_id','$linkid','$project_id','$supplier_id','$clientid','redirectsTerminate','$ipaddress','$username','$timestamp')";
         $insertStatusResult = mysqli_query($conn, $insertStatus);
 
         $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused',`timestamp`='$timestamp' WHERE client_id='$clientid' AND status='live'";
@@ -123,8 +123,8 @@ if ($status == "redirectsComplete") {
         echo "Updated..!";
 
         $insertStatus = "INSERT INTO `projects_suppliers_link_status`
-        (`p_id`, `link_id`, `project_id`, `sipplier_id`, `client_id`, `status`, `ip_address`, `username`, `timestamp`) VALUES 
-        ('$project_id','$linkid','$project_id','$supplier_id','$clientid','redirectsQuotafull','$ipaddress','$username','$timestamp')";
+        (`lead_id`, `p_id`, `link_id`, `project_id`, `sipplier_id`, `client_id`, `status`, `ip_address`, `username`, `timestamp`) VALUES 
+        ('$username','$project_id','$linkid','$project_id','$supplier_id','$clientid','redirectsQuotafull','$ipaddress','$username','$timestamp')";
         $insertStatusResult = mysqli_query($conn, $insertStatus);
 
         $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused',`timestamp`='$timestamp' WHERE client_id='$clientid' AND status='live'";
@@ -157,8 +157,8 @@ if ($status == "redirectsComplete") {
         echo "Updated..!";
 
         $insertStatus = "INSERT INTO `projects_suppliers_link_status`
-        (`p_id`, `link_id`, `project_id`, `sipplier_id`, `client_id`, `status`, `ip_address`, `username`, `timestamp`) VALUES 
-        ('$project_id','$linkid','$project_id','$supplier_id','$clientid','qualityTerminate','$ipaddress','$username','$timestamp')";
+        (`lead_id`, `p_id`, `link_id`, `project_id`, `sipplier_id`, `client_id`, `status`, `ip_address`, `username`, `timestamp`) VALUES 
+        ('$username','$project_id','$linkid','$project_id','$supplier_id','$clientid','qualityTerminate','$ipaddress','$username','$timestamp')";
         $insertStatusResult = mysqli_query($conn, $insertStatus);
 
         $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused',`timestamp`='$timestamp' WHERE client_id='$clientid' AND status='live'";
