@@ -62,15 +62,10 @@ if ($supplierStatus == "live") {
             //New Live Link With leadID
             $url = $liveLink;
             $newPid = $new_lead_id;
-            // Parse the URL into its components
             $parts = parse_url($url);
-            // Parse the query string into an array
             $query = parse_str($parts['query'], $queryParams);
-            // Replace the PID value
             $queryParams['PID'] = $newPid;
-            // Rebuild the query string
             $newQuery = http_build_query($queryParams);
-            // Rebuild the URL with the new query string
             $newUrl = $parts['scheme'] . '://' . $parts['host'] . $parts['path'] . '?' . $newQuery;
             echo "New Live Link:-" . $newUrl;
 
@@ -89,7 +84,7 @@ if ($supplierStatus == "live") {
             } else {
                 $newClickCount = $clickCount + 1;
             }
-            $updateClickCountQuery = "UPDATE `projects_suppliers_link` SET `click`='$newClickCount',`ipAdd`='$ipaddress' WHERE `supplier_id`='$supplierid' AND `link_id`='$linkid'";
+            $updateClickCountQuery = "UPDATE `projects_suppliers_link` SET `click`='$newClickCount',`ipAdd`='$ipaddress',`username`='$user' WHERE `supplier_id`='$supplierid' AND `link_id`='$linkid'";
             if ($updateResult = mysqli_query($conn, $updateClickCountQuery)) {
                 header("Location: " . $newUrl);
             }
