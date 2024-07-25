@@ -1,9 +1,17 @@
 <?php
 
+//DataBase
+include ("DBConfig/connection.php");
+
 $pid = $_GET['pid'];
 $username = $_GET['username'];
 $status = "Terminate";
 $ip = $_GET['ipaddress'];
+
+$usernameQuery = "SELECT * FROM `projects_suppliers_link_status` WHERE lead_id='$username'";
+$usernameResult = mysqli_query($conn, $usernameQuery);
+$usernameRow = mysqli_fetch_array($usernameResult);
+$username = $usernameRow['username'];
 
 ?>
 <!DOCTYPE html>
