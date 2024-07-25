@@ -103,34 +103,36 @@
 												<label class="form-check-label" for="customCheck1"></label>
 											</span>
 										</th>
-										<th><b>Serial No</b></th>
 										<th><b>ID</b></th>
-										<th><b>Project</b></th>
-										<th><b>User</b></th>
-										<th><b>Payout</b></th>
+										<th><b>PID (Client)</b></th>
+										<th><b>Project ID</b></th>
+										<th><b>Supplier Email</b></th>
+										<th><b>Username</b></th>
 										<th><b>Status</b></th>
-                                        <th><b>Uid</b></th>
-                                        <th><b>Ip</b></th>
-                                        <th><b>Country</b></th>
-                                        <th><b>Completed at</b></th>
+										<th><b>Ip</b></th>
+										<th><b>Date & Time</b></th>
 										<!-- <th>Actions</th> -->
 									</tr>
 								</thead>
 								<tbody>
 									<?php
-									$query3 = "SELECT `supplier_id`, `supplier_name`, `supplier_email`, `status` FROM `suppliers`";
+									$query3 = "SELECT * FROM `projects_suppliers_link_status`";
 									$result3 = mysqli_query($conn, $query3);
-									$count = 1;
 									while ($rows3 = mysqli_fetch_array($result3)) {
 										// echo "<pre>";
-										// print_r($rows1);
+										// print_r($rows3);
 									
-										$s_no = $count;
-										$count++;
-										$supplier_id = $rows3['supplier_id'];
-										$supplier_name = $rows3['supplier_name'];
-										$supplier_email = $rows3['supplier_email'];
+										$lead_id = $rows3['lead_id'];
+										$p_id = $rows3['p_id'];
+										$link_id = $rows3['link_id'];
+										$project_id = $rows3['project_id'];
+										$sipplier_id = $rows3['sipplier_id'];
+										$client_id = $rows3['client_id'];
 										$status = $rows3['status'];
+										$ip_address = $rows3['ip_address'];
+										$username = $rows3['username'];
+										$timestamp = $rows3['timestamp'];
+
 										?>
 										<tr>
 											<td>
@@ -139,50 +141,46 @@
 												</div>
 											</td>
 											<td>
-												<?php echo $s_no; ?>
+												<?php echo $lead_id; ?>
 											</td>
 											<td>
-												<a href="supplierViewDetails.php?s_id=<?php echo $supplier_id; ?>">
-													<?php echo $supplier_id; ?>
+												<?php echo $p_id; ?>
+											</td>
+											<td>
+												<?php echo $project_id; ?>
+											</td>
+											<td>
+												<?php
+												$s_query = "SELECT * FROM `suppliers` WHERE supplier_id='$sipplier_id'";
+												$s_res = mysqli_query($conn, $s_query);
+												$s_row = mysqli_fetch_array($s_res);
+												$s_email = $s_row['supplier_email'];
+												?>
+												<a href="supplierViewDetails.php?s_id=<?php echo $sipplier_id; ?>">
+													<?php echo $s_email; ?>
 												</a>
 											</td>
 											<td>
-												<a href="supplierViewDetails.php?s_id=<?php echo $supplier_id; ?>">
-													<?php echo $supplier_name; ?>
-												</a>
+												<?php echo $username; ?>
 											</td>
 											<td>
-												<?php echo $supplier_email; ?>
+												<?php
+												if ($status == "redirectsComplete") {
+													echo "Complete";
+												} else if ($status == "redirectsTerminate") {
+													echo "Terminate";
+												} else if ($status == "redirectsQuotafull") {
+													echo "Quotafull";
+												} else if ($status == "qualityTerminate") {
+													echo "Quality Terminate";
+												}
+												?>
 											</td>
 											<td>
-												<?php if ($status == "active") {
-													echo "Active";
-												} else {
-													echo "Inactive";
-												} ?>
+												<?php echo $ip_address; ?>
 											</td>
 											<td>
-												<a href="supplierUpdate.php?s_id=<?php echo $supplier_id; ?>"
-													class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover"
-													data-bs-toggle="tooltip" data-placement="top" title=""
-													data-bs-original-title="Edit" href="edit-contact.html">
-													<span class="icon">
-														<span class="feather-icon">
-															<i data-feather="edit"></i>
-														</span>
-													</span>
-												</a>
-
-												<a href="supplierViewDetails.php?s_id=<?php echo $supplier_id; ?>"
-													class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover"
-													data-bs-toggle="tooltip" data-placement="top" title=""
-													data-bs-original-title="Edit" href="edit-contact.html">
-													<span class="icon">
-														<span class="feather-icon">
-															<i data-feather="eye"></i>
-														</span>
-													</span>
-												</a>
+												<?php echo $timestamp; ?>
 											</td>
 										</tr>
 									<?php } ?>

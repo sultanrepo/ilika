@@ -1,9 +1,18 @@
 <?php
 
+//DataBase
+include ("DBConfig/connection.php");
+
 $pid = $_GET['pid'];
 $username = $_GET['username'];
 $status = "Terminate";
 $ip = $_GET['ipaddress'];
+
+$projectQuery = "SELECT * FROM `projects` WHERE project_id='$pid'";
+$project_res = mysqli_query($conn, $projectQuery);
+$project_row = mysqli_fetch_array($project_res);
+
+$id = $project_row['id'];
 
 ?>
 <!DOCTYPE html>
@@ -83,7 +92,7 @@ $ip = $_GET['ipaddress'];
                                                     </thead>
                                                     <tbody class="thead-light">
                                                         <tr>
-                                                            <th><?php echo $pid; ?></th>
+                                                            <th><?php echo "II" . $$id; ?></th>
                                                             <th><?php echo $username; ?></th>
                                                             <th><?php echo $status; ?></th>
                                                             <th><?php echo $ip; ?></th>
