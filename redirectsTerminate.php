@@ -11,7 +11,7 @@ $ip = $_GET['ipaddress'];
 $usernameQuery = "SELECT * FROM `projects_suppliers_link_status` WHERE lead_id='$username'";
 $usernameResult = mysqli_query($conn, $usernameQuery);
 $usernameRow = mysqli_fetch_array($usernameResult);
-$username = $project_row['username'];
+$username = $usernameRow['username'];
 
 ?>
 <!DOCTYPE html>
