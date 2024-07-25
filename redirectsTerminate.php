@@ -8,11 +8,10 @@ $username = $_GET['username'];
 $status = "Terminate";
 $ip = $_GET['ipaddress'];
 
-$projectQuery = "SELECT * FROM `projects` WHERE project_id='$pid'";
-$project_res = mysqli_query($conn, $projectQuery);
-$project_row = mysqli_fetch_array($project_res);
-
-$id = $project_row['id'];
+$usernameQuery = "SELECT * FROM `projects_suppliers_link_status` WHERE lead_id='$username'";
+$usernameResult = mysqli_query($conn, $usernameQuery);
+$usernameRow = mysqli_fetch_array($usernameResult);
+$username = $project_row['username'];
 
 ?>
 <!DOCTYPE html>
@@ -92,7 +91,7 @@ $id = $project_row['id'];
                                                     </thead>
                                                     <tbody class="thead-light">
                                                         <tr>
-                                                            <th><?php echo "II" . $$id; ?></th>
+                                                            <th><?php echo $pid; ?></th>
                                                             <th><?php echo $username; ?></th>
                                                             <th><?php echo $status; ?></th>
                                                             <th><?php echo $ip; ?></th>
