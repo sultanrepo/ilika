@@ -1,0 +1,157 @@
+@using System.Data.OleDb;
+@using WebMatrix.Data
+<!-- The System.Data.OleDb describes a collection of classes used to access a datasource-->
+
+@{
+    <!-- C# code-->
+    
+}
+
+
+<!– HTML code-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- This is the head HTML tag. This is where your CSS code automatically appears -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Untitled Document</title>
+    <style type="text/css">
+        #wrapper {
+            width: 1000px;
+            margin: 0 auto 0 auto;
+        }
+
+        #header {
+            width: 1000px;
+            border-top-style: dashed;
+            border-right-style: dashed;
+            border-bottom-style: dashed;
+            border-left-style: dashed;
+            height: 100px;
+        }
+
+        #navigation {
+            width: 1000px;
+            height: 80px;
+            border-top-style: dashed;
+            border-right-style: dashed;
+            border-bottom-style: dashed;
+            border-left-style: dashed;
+            position: relative;
+        }
+
+        #body {
+            width: 1000px;
+            height: 1000px;
+            border-top-style: dashed;
+            border-right-style: dashed;
+            border-bottom-style: dashed;
+            border-left-style: dashed;
+            position: relative;
+        }
+
+            #body #form_1 {
+                height: 200px;
+                width: 800px;
+                margin-top: 50px;
+                margin-right: auto;
+                margin-bottom: -30px;
+                margin-left: auto;
+                border-top-style: dashed;
+                border-right-style: dashed;
+                border-bottom-style: dashed;
+                border-left-style: dashed;
+            }
+
+        #navigation #button_1 {
+            border-top-style: dotted;
+            border-right-style: dotted;
+            border-bottom-style: dotted;
+            border-left-style: dotted;
+            height: 40px;
+            width: 60px;
+            margin-left: 10px;
+            position: absolute;
+            left: 10px;
+            top: 28px;
+        }
+
+        #navigation #button_2 {
+            height: 40px;
+            width: 60px;
+            float: none;
+            margin-top: -46px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+            margin-left: 100px;
+            border-top-style: dotted;
+            border-right-style: dotted;
+            border-bottom-style: dotted;
+            border-left-style: dotted;
+            position: absolute;
+            left: 1px;
+            top: 75px;
+        }
+
+        #body #tv_2 {
+            height: auto;
+            width: 800px;
+            border-top-style: dashed;
+            border-right-style: dashed;
+            border-bottom-style: dashed;
+            border-left-style: dashed;
+            margin-top: 50px;
+            margin-right: auto;
+            margin-bottom: 50px;
+            margin-left: auto;
+        }
+    </style>
+</head>
+
+<!-- This is the body HTML tag. -->
+<body>
+    <!-- This is the wrapper sections that ensures that your page appears centered in any browser -->
+    <div id="wrapper">
+
+        <!-- This is the header section and NOT the header of the HTML page.-->
+        <div id="header">Header Section</div>
+        <!-- This is the navigation section. Your navigation links appear here -->
+        <div id="navigation">
+            Navigation_Bar Section
+            <!-- This is the section for button 1. You can insert an image as a button but remember that background images can not be linked to other pages-->
+            <div id="button_1">button_1<a href="www.yourlink.com"></a></div>
+            <!-- This is the section for button 2. To insert an image that links to other pages make sure you use the Insert manu -> Image. You then need to drag the image in the section -->
+            <div id="button_2">button_2</div>
+        </div>
+        <!-- This is the body section and  NOT the body of the HTML page -->
+        <div id="body">
+            <div id="form_1">
+                <p>Please enter your username and password</p>
+                <form action="" method="post">
+                    <p>
+                        <label for="text1">Username_field:</label>
+                        <input type="text" name="text1" />
+                    </p>
+                    <p>
+                        <label for="text2">Password_field:</label>
+                        <input type="text" name="text2" />
+                    </p> <p><input type="submit" value="Send" /></p>
+                </form>
+               
+            </div>
+            <div id="tv_2">
+                <p>The contents of the database are as follows:</p>
+                @{
+                    
+<!-- C# code-->
+                }
+
+            </div>
+        </div>
+    </div>
+    <!-- This is the end of the body of the HTML page -->
+</body>
+</html>
+
