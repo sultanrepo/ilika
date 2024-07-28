@@ -63,7 +63,14 @@ $terminateCount = $terminateCount['SUM(terminate)'];
 				<div class="card text-white bg-primary">
 					<div class="card-header">Total <br> Clicks</div>
 					<div class="card-body">
-						<h5 class="card-title text-white"><?php echo $clickCount; ?>
+						<h5 class="card-title text-white">
+							<?php
+							if ($clickCount == 0) {
+								echo "0";
+							} else {
+								echo $clickCount;
+							}
+							?>
 							<?php //echo $totalCollection;    ?>
 						</h5>
 					</div>
@@ -73,8 +80,14 @@ $terminateCount = $terminateCount['SUM(terminate)'];
 				<div class="card text-white bg-success">
 					<div class="card-header">Total <br> Completes</div>
 					<div class="card-body">
-						<h5 class="card-title text-white"><?php echo $completeCount; ?>
-							<?php //echo $donationAmout;    ?>
+						<h5 class="card-title text-white">
+							<?php
+							if ($completeCount == 0) {
+								echo "0";
+							} else {
+								echo $completeCount;
+							}
+							?>
 						</h5>
 					</div>
 				</div>
@@ -83,8 +96,14 @@ $terminateCount = $terminateCount['SUM(terminate)'];
 				<div class="card text-white bg-warning">
 					<div class="card-header">Total <br> Terminates</div>
 					<div class="card-body">
-						<h5 class="card-title text-white"><?php echo $terminateCount ?>
-							<?php //echo $total_remaing_amount;    ?>
+						<h5 class="card-title text-white">
+							<?php
+							if ($terminateCount == 0) {
+								echo "0";
+							} else {
+								echo $terminateCount;
+							}
+							?>
 						</h5>
 					</div>
 				</div>
