@@ -42,6 +42,7 @@ $projectQuery = "SELECT * FROM `projects` WHERE project_id='$project_id'";
 $project_res = mysqli_query($conn, $projectQuery);
 $project_row = mysqli_fetch_array($project_res);
 
+$id = $project_row['id'];
 $client_id = $project_row['client_id'];
 $project_id = $project_row['project_id'];
 $project_name = $project_row['project_name'];
@@ -198,57 +199,81 @@ $terminateCount = $terminateCount['SUM(terminates)'];
                     <!-- dashboardMainHtml.php -->
                     <!-- /Page Body -->
                 </div>
+                <style>
+                    .container {
+                        display: flex;
+                        justify-content: space-between;
+                        /* Adjusts spacing between items */
+                        /* align-items: center; */
+                        /* Vertically aligns items in the center */
+                        gap: 350px;
+                        /* Optional: Add spacing between items */
+                    }
+
+                    .item {
+                        display: flex;
+                        flex-direction: column;
+                        text-align: center;
+                        /* Optional: Centers text within each item */
+                    }
+
+                    .btn {
+                        margin-top: 5px;
+                        /* Adjust spacing between text and button if needed */
+                    }
+                </style>
                 <div class="profile-intro mt-3">
                     <div class="card card-flush mw-400p bg-transparent">
                         <div class="card-body">
                             <h3>Project Information</h3>
                             <hr>
-                            <h5>
-                                Name
-                            </h5>
-                            <p>
-                                <b>
-                                    <?php echo $project_name; ?>
-                                </b>
-                            </p>
+                            <div class="container">
+                                <div class="item">
+                                    <h5>Serial No.</h5>
+                                    <p><b><?php echo $id; ?></b></p>
+                                </div>
+                                <div class="item">
+                                    <h5>Name</h5>
+                                    <p><b><?php echo $project_name; ?></b></p>
+                                </div>
+                                <div class="item">
+                                    <h5>Status</h5>
+                                    <p>
+                                        <?php
+                                        if ($status == 'live') {
+                                            ?>
+                                            <button type="button" class="btn btn-success">Live</button>
+                                            <?php
+                                        } else if ($status == 'pause') {
+                                            ?>
+                                                <button type="button" class="btn btn-warning">Pause</button>
+                                            <?php
+                                        }
+                                        ?>
+                                    </p>
+                                </div>
+                            </div>
                             <hr>
-                            <h5>Status</h5>
-                            <p>
-                                <?php
-                                if ($status == 'live') {
-                                    ?>
-                                    <button type="button" class="btn btn-success">Live</button>
-                                    <?php
-                                } else if ($status == 'pause') {
-                                    ?>
-                                        <button type="button" class="btn btn-warning">Pause</button>
-                                    <?php
-                                }
-                                ?>
-                            </p>
-                            <hr>
-                            <h5>Client</h5>
-                            <p>
-                                <a href="clientViewDeails.php?c_id=<?php echo $client_id; ?>">
-                                    <b>
-                                        <?php echo $clientName; ?>
-                                    </b>
-                                </a>
-                            </p>
-                            <hr>
-                            <h5>Project ID (Client)</h5>
-                            <p>
-                                <b>
-                                    <?php echo $project_id; ?>
-                                </b>
-                            </p>
-                            <hr>
-                            <h5>Cost Per Complete (CPI)</h5>
-                            <p>
-                                <b>
-                                    <?php echo $cpi; ?>
-                                </b>
-                            </p>
+
+                            <div class="container">
+                                <div class="item">
+                                    <h5>Client</h5>
+                                    <p>
+                                        <a href="clientViewDeails.php?c_id=<?php echo $client_id; ?>">
+                                            <b><?php echo $clientName; ?></b>
+                                        </a>
+                                    </p>
+                                </div>
+                                <div class="item">
+                                    <h5>Project ID (Client)</h5>
+                                    <p><b><?php echo $project_id; ?></b></p>
+                                </div>
+                                <div class="item">
+                                    <h5>Cost Per Complete (CPI)</h5>
+                                    <p><b><?php echo $cpi; ?></b></p>
+                                </div>
+                            </div>
+
                             <hr>
                             <h5>Maximum Completes (Limit)</h5>
                             <p>
