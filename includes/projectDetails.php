@@ -203,71 +203,78 @@ $terminateCount = $terminateCount['SUM(terminates)'];
                         <div class="card-body">
                             <h3>Project Information</h3>
                             <hr>
-                            <div style="display: flex; gap: 30px;">
-                                <h5>
-                                    Name
-                                </h5>
-                                <p>
-                                    <b>
-                                        <?php echo $project_name; ?>
-                                    </b>
-                                </p>
-                                <hr>
-                                <h5>Status</h5>
-                                <p>
-                                    <?php
-                                    if ($status == 'live') {
-                                        ?>
-                                        <button type="button" class="btn btn-flush-success btn-animated">Live</button>
-                                        <?php
-                                    } else if ($status == 'pause') {
-                                        ?>
-                                            <button type="button" class="btn btn-flush-warning btn-animated">Pause</button>
-                                        <?php
-                                    }
-                                    ?>
-                                </p>
-                            </div>
+                            <h5>
+                                Name
+                            </h5>
+                            <p>
+                                <b>
+                                    <?php echo $project_name; ?>
+                                </b>
+                            </p>
                             <hr>
-                            <div style="display: flex; gap: 30px;">
-                                <h5>Client</h5>
-                                <p>
-                                    <a href="clientViewDeails.php?c_id=<?php echo $client_id; ?>">
-                                        <b>
-                                            <?php echo $clientName; ?>
-                                        </b>
-                                    </a>
-                                </p>
-                                <h5>Project ID (Client)</h5>
-                                <p>
+                            <h5>Status</h5>
+                            <p>
+                                <?php
+                                if ($status == 'live') {
+                                    ?>
+                                    <button type="button" class="btn btn-success">Live</button>
+                                    <?php
+                                } else if ($status == 'pause') {
+                                    ?>
+                                        <button type="button" class="btn btn-warning">Pause</button>
+                                    <?php
+                                }
+                                ?>
+                            </p>
+                            <hr>
+                            <h5>Client</h5>
+                            <p>
+                                <a href="clientViewDeails.php?c_id=<?php echo $client_id; ?>">
+                                    <b>
+                                        <?php echo $clientName; ?>
+                                    </b>
+                                </a>
+                            </p>
+                            <hr>
+                            <h5>Project ID (Client)</h5>
+                            <p>
+                                <b>
                                     <?php echo $project_id; ?>
-                                </p>
-                            </div>
+                                </b>
+                            </p>
                             <hr>
                             <h5>Cost Per Complete (CPI)</h5>
                             <p>
-                                <?php echo $cpi; ?>
+                                <b>
+                                    <?php echo $cpi; ?>
+                                </b>
                             </p>
                             <hr>
                             <h5>Maximum Completes (Limit)</h5>
                             <p>
-                                <?php echo $max_complate_limit; ?>
+                                <b>
+                                    <?php echo $max_complate_limit; ?>
+                                </b>
                             </p>
                             <hr>
                             <h5>Cid replacer</h5>
                             <p>
-                                <?php echo $cid_replacer; ?>
+                                <b>
+                                    <?php echo $cid_replacer; ?>
+                                </b>
                             </p>
                             <hr>
                             <h5>Description</h5>
                             <p>
-                                <?php
-                                if ($project_desc === "") {
-                                    echo "NA";
-                                } else {
-                                    echo $project_desc;
-                                }
-                                ?>
+                                <b>
+                                    <?php
+                                    if ($project_desc === "") {
+                                        echo "NA";
+                                    } else {
+                                        echo $project_desc;
+                                    }
+                                    ?>
+                                </b>
                             </p>
                         </div>
                     </div>
