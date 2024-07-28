@@ -59,6 +59,24 @@ $clientNameResult = mysqli_query($conn, $getClientNameQuery);
 $clientNameRows = mysqli_fetch_array($clientNameResult);
 $clientName = $clientNameRows['c_name'];
 
+//Getting Click Count
+$getClickCountQuery = "SELECT SUM(click) FROM `projects_suppliers_link` WHERE project_id='$project_id'";
+$clickCountResult = mysqli_query($conn, $getClickCountQuery);
+$clickCount = mysqli_fetch_array($clickCountResult);
+$clickCount = $clickCount['SUM(click)'];
+
+//Getting Complete Count
+$getCompleteCountQuery = "SELECT SUM(completes) FROM `projects_suppliers_link` WHERE project_id='$project_id'";
+$completeCountResult = mysqli_query($conn, $getCompleteCountQuery);
+$completeCount = mysqli_fetch_array($completeCountResult);
+$completeCount = $completeCount['SUM(completes)'];
+
+//Getting terminate Count
+$getTerminateCountQuery = "SELECT SUM(terminate) FROM `projects_suppliers_link` WHERE project_id='$project_id'";
+$terminateCountResult = mysqli_query($conn, $getTerminateCountQuery);
+$terminateCount = mysqli_fetch_array($terminateCountResult);
+$terminateCount = $terminateCount['SUM(terminate)'];
+
 
 ?>
 <!-- Main Content -->
@@ -83,7 +101,8 @@ $clientName = $clientNameRows['c_name'];
                             </div>
                             <div class="mb-lg-0 mb-2 me-8">
                                 <!-- <h1 class="pg-title">New Clients</h1> -->
-                                <button type="button" onclick="updateStatus('<?php echo $project_id . '^' . $status; ?>')"
+                                <button type="button"
+                                    onclick="updateStatus('<?php echo $project_id . '^' . $status; ?>')"
                                     class="btn btn-secondary btn-rounded">
                                     <?php
                                     if ($status == 'live') {
@@ -96,7 +115,8 @@ $clientName = $clientNameRows['c_name'];
                                     ?>
                                 </button>
                                 <button type="button" class="btn btn-warning">Waiting for Final IDs</button>
-                                <button type="button" class="btn btn-primary" onclick="redirectToPage('projectUpdateDetails.php?project_id=<?php echo $project_id ?>')" >Edit</button>
+                                <button type="button" class="btn btn-primary"
+                                    onclick="redirectToPage('projectUpdateDetails.php?project_id=<?php echo $project_id ?>')">Edit</button>
                                 <p></p>
                             </div>
                         </div>
@@ -128,8 +148,14 @@ $clientName = $clientNameRows['c_name'];
                             <div class="card text-white bg-primary">
                                 <div class="card-header">Total <br> Clicks</div>
                                 <div class="card-body">
-                                    <h5 class="card-title text-white">245
-                                        <?php //echo $totalCollection;                    ?>
+                                    <h5 class="card-title text-white">
+                                        <?php
+                                        if ($clickCount == 0) {
+                                            echo "0";
+                                        } else {
+                                            echo $clickCount;
+                                        }
+                                        ?>
                                     </h5>
                                 </div>
                             </div>
@@ -138,8 +164,14 @@ $clientName = $clientNameRows['c_name'];
                             <div class="card text-white bg-success">
                                 <div class="card-header">Total <br> Completes</div>
                                 <div class="card-body">
-                                    <h5 class="card-title text-white">2
-                                        <?php //echo $donationAmout;                    ?>
+                                    <h5 class="card-title text-white">
+                                        <?php
+                                        if ($completeCount == 0) {
+                                            echo "0";
+                                        } else {
+                                            echo $completeCount;
+                                        }
+                                        ?>
                                     </h5>
                                 </div>
                             </div>
@@ -148,8 +180,14 @@ $clientName = $clientNameRows['c_name'];
                             <div class="card text-white bg-warning">
                                 <div class="card-header">Total <br> Terminates</div>
                                 <div class="card-body">
-                                    <h5 class="card-title text-white">114
-                                        <?php //echo $total_remaing_amount;                 ?>
+                                    <h5 class="card-title text-white">
+                                        <?php
+                                        if ($terminateCount == 0) {
+                                            echo "0";
+                                        } else {
+                                            echo $terminateCount;
+                                        }
+                                        ?>
                                     </h5>
                                 </div>
                             </div>
