@@ -200,94 +200,93 @@ $terminateCount = $terminateCount['SUM(terminates)'];
                     <!-- /Page Body -->
                 </div>
                 <style>
-                    .container {
-                        display: flex;
-                        justify-content: space-between;
-                        /* Adjusts spacing between items */
-                        /* align-items: center; */
-                        /* Vertically aligns items in the center */
-                        gap: 350px;
-                        /* Optional: Add spacing between items */
-                    }
 
-                    .item {
-                        display: flex;
-                        flex-direction: column;
-                        text-align: center;
-                        /* Optional: Centers text within each item */
-                    }
-
-                    .btn {
-                        margin-top: 5px;
-                        /* Adjust spacing between text and button if needed */
-                    }
                 </style>
                 <div class="profile-intro mt-3">
-                    <div class="card card-flush mw-400p bg-transparent">
+                    <div class="card bg-transparent">
                         <div class="card-body">
                             <h3>Project Information</h3>
                             <hr>
-                            <div class="container">
-                                <div class="item">
-                                    <h5>Serial No.</h5>
-                                    <p><b><?php echo $id; ?></b></p>
-                                </div>
-                                <div class="item">
-                                    <h5>Name</h5>
-                                    <p><b><?php echo $project_name; ?></b></p>
-                                </div>
-                                <div class="item">
-                                    <h5>Status</h5>
-                                    <p>
-                                        <?php
-                                        if ($status == 'live') {
-                                            ?>
-                                            <button type="button" class="btn btn-success">Live</button>
-                                            <?php
-                                        } else if ($status == 'pause') {
-                                            ?>
-                                                <button type="button" class="btn btn-warning">Pause</button>
-                                            <?php
-                                        }
-                                        ?>
-                                    </p>
-                                </div>
-                            </div>
-                            <hr>
+
 
                             <div class="container">
-                                <div class="item">
-                                    <h5>Client</h5>
-                                    <p>
-                                        <a href="clientViewDeails.php?c_id=<?php echo $client_id; ?>">
-                                            <b><?php echo $clientName; ?></b>
-                                        </a>
-                                    </p>
-                                </div>
-                                <div class="item">
-                                    <h5>Project ID (Client)</h5>
-                                    <p><b><?php echo $project_id; ?></b></p>
-                                </div>
-                                <div class="item">
-                                    <h5>Cost Per Complete (CPI)</h5>
-                                    <p><b><?php echo $cpi; ?></b></p>
+                                <div class="row g-2">
+                                    <div class="col">
+                                        <h5>Serial No.</h5>
+                                        <p><b><?php echo $id; ?></b></p>
+                                    </div>
+                                    <div class="col">
+                                        <h5>Name</h5>
+                                        <p><b><?php echo $project_name; ?></b></p>
+                                    </div>
+                                    <div class="col">
+                                        <h5>Status</h5>
+                                        <p>
+                                            <?php
+                                            if ($status == 'live') {
+                                                ?>
+                                                <button type="button" class="btn btn-success">Live</button>
+                                                <?php
+                                            } else if ($status == 'pause') {
+                                                ?>
+                                                    <button type="button" class="btn btn-warning">Pause</button>
+                                                <?php
+                                            }
+                                            ?>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
 
                             <hr>
-                            <h5>Maximum Completes (Limit)</h5>
-                            <p>
-                                <b>
-                                    <?php echo $max_complate_limit; ?>
-                                </b>
-                            </p>
+
+
+                            <div class="container">
+                                <div class="row g-2">
+                                    <div class="col">
+                                        <h5>Client</h5>
+                                        <p>
+                                            <a href="clientViewDeails.php?c_id=<?php echo $client_id; ?>">
+                                                <b><?php echo $clientName; ?></b>
+                                            </a>
+                                        </p>
+                                    </div>
+                                    <div class="col">
+                                        <h5>Project ID (Client)</h5>
+                                        <p><b><?php echo $project_id; ?></b></p>
+                                    </div>
+                                    <div class="col">
+                                        <h5>Cost Per Complete (CPI)</h5>
+                                        <p><b><?php echo $cpi; ?></b></p>
+                                    </div>
+                                </div>
+                            </div>
                             <hr>
-                            <h5>Cid replacer</h5>
-                            <p>
-                                <b>
-                                    <?php echo $cid_replacer; ?>
-                                </b>
-                            </p>
+
+
+                            <div class="container">
+                                <div class="row g-2">
+                                    <div class="col">
+                                        <h5>Maximum Completes (Limit)</h5>
+                                        <p>
+                                            <b>
+                                                <?php echo $max_complate_limit; ?>
+                                            </b>
+                                        </p>
+                                    </div>
+                                    <div class="col">
+                                        <h5>Cid replacer</h5>
+                                        <p>
+                                            <b>
+                                                <?php echo $cid_replacer; ?>
+                                            </b>
+                                        </p>
+                                    </div>
+                                    <div class="col">
+
+                                    </div>
+                                </div>
+                            </div>
                             <hr>
                             <h5>Description</h5>
                             <p>
