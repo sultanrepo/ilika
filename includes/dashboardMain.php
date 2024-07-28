@@ -23,7 +23,7 @@ $completeCount = mysqli_fetch_array($completeCountResult);
 $completeCount = $completeCount['SUM(completes)'];
 
 //Getting terminate Count
-$getTerminateCountQuery = "SELECT SUM(terminate) FROM `projects_suppliers_link`";
+$getTerminateCountQuery = "SELECT SUM(terminates) FROM `projects_suppliers_link`";
 $terminateCountResult = mysqli_query($conn, $getTerminateCountQuery);
 $terminateCount = mysqli_fetch_array($terminateCountResult);
 $terminateCount = $terminateCount['SUM(terminate)'];
