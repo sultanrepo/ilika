@@ -172,10 +172,32 @@
 												<a href="supplierViewDetails.php?s_id=<?php echo $supplier_id; ?>"
 													class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover"
 													data-bs-toggle="tooltip" data-placement="top" title=""
-													data-bs-original-title="Edit" href="edit-contact.html">
+													data-bs-original-title="View" href="edit-contact.html">
 													<span class="icon">
 														<span class="feather-icon">
 															<i data-feather="eye"></i>
+														</span>
+													</span>
+												</a>
+
+												<a href="Controller/api/exportExcelAll.php?supplier_id=<?php echo $supplier_id; ?>"
+													class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover"
+													data-bs-toggle="tooltip" data-placement="top" title=""
+													data-bs-original-title="Completes" href="edit-contact.html">
+													<span class="icon">
+														<span class="feather-icon">
+														<i class="material-icons">assignment</i>
+														</span>
+													</span>
+												</a>
+
+												<a href="Controller/api/exportExcelCompletes.php?supplier_id=<?php echo $supplier_id; ?>"
+													class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover"
+													data-bs-toggle="tooltip" data-placement="top" title=""
+													data-bs-original-title="Status Report" href="edit-contact.html">
+													<span class="icon">
+														<span class="feather-icon">
+														<i class="material-icons">assessment</i>
 														</span>
 													</span>
 												</a>

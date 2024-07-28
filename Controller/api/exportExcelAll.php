@@ -1,9 +1,12 @@
 <?php
 
-include("../../DBConfig/connection.php");
+include ("../../DBConfig/connection.php");
+
+//Query String for Supplier ID
+$supplier_id = $_GET['supplier_id'];
 
 // SQL query to select data from database
-$sql = "SELECT * FROM `projects_suppliers_link_status`";
+$sql = "SELECT * FROM `projects_suppliers_link_status` WHERE sipplier_id='$supplier_id'";
 
 // Execute query
 $result = $conn->query($sql);
