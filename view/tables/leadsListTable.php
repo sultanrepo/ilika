@@ -147,7 +147,12 @@
 												<?php echo $p_id; ?>
 											</td>
 											<td>
-												<?php echo $project_id; ?>
+												<?php
+												$getProjectLocalID = "SELECT * FROM `projects` WHERE project_id='$project_id'";
+												$resultProjectLocalID = mysqli_query($conn, $getProjectLocalID);
+												$projectLocalID = mysqli_fetch_array($resultProjectLocalID);
+												echo "II" . $projectLocalID['id'];
+												?>
 											</td>
 											<td>
 												<?php
