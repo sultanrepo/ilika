@@ -10,108 +10,23 @@ $getUsername = mysqli_query($conn, "SELECT * FROM `user_details` WHERE user_id='
 $userRows = mysqli_fetch_array($getUsername);
 $userName = $userRows['user_name'];
 
-$monthName = '';
+//Getting Click Count
+$getClickCountQuery = "SELECT SUM(click) FROM `projects_suppliers_link`";
+$clickCountResult = mysqli_query($conn, $getClickCountQuery);
+$clickCount = mysqli_fetch_array($clickCountResult);
+$clickCount = $clickCount['SUM(click)'];
 
-$date = date("Y-m");
-$dateArray = explode("-", $date);
-$monthN = $dateArray[1];
-$yearN = $dateArray[0];
+//Getting Complete Count
+$getCompleteCountQuery = "SELECT SUM(completes) FROM `projects_suppliers_link`";
+$completeCountResult = mysqli_query($conn, $getCompleteCountQuery);
+$completeCount = mysqli_fetch_array($completeCountResult);
+$completeCount = $completeCount['SUM(completes)'];
 
-$months = array(
-	'January',
-	'February',
-	'March',
-	'April',
-	'May',
-	'June',
-	'July ',
-	'August',
-	'September',
-	'October',
-	'November',
-	'December',
-);
-
-//Get Current Month Name
-if ($monthN == 11 || $monthN == 12) {
-	$monthName = $months[$monthN - 1];
-	echo "Month123" . $monthName;
-} else {
-	$monthName = $months[trim($monthN - 1, "0")];
-	echo "Month123" . $monthName;
-}
-
-
-// if ( $monthN == 01 ) {
-// 	$monthName = "January";
-// } else if ( $monthN == 02 ) {
-// 	$monthName = "February";
-// } else if ( $monthN == 03 ) {
-// 	$monthName = "March";
-// } else if ( $monthN == 04 ) {
-// 	$monthName = "April";
-// } else if ( $monthN == 05 ) {
-// 	$monthName = "May";
-// } else if ( $monthN == 06 ) {
-// 	$monthName = "June";
-// } else if ( $monthN == 07 ) {
-// 	$monthName = "July";
-// } else if ( $monthN == 08 ) {
-// 	$monthName = "August";
-// } else if ( $monthN == 09 ) {
-// 	$monthName = "September";
-// } else if ( $monthN == 10 ) {
-// 	$monthName = "October";
-// } else if ( $monthN == 11 ) {
-// 	$monthName = "November";
-// } else ( $monthN == 12 ) {
-// 	$monthName = "December";
-// }
-
-//Total Collection
-$result0 = mysqli_query($conn, "SELECT SUM(amount) FROM deposit");
-$rows0 = mysqli_fetch_array($result0);
-$totalCollection = $rows0[0];
-
-//This month collection
-$result1 = mysqli_query($conn, "SELECT SUM(amount) as total FROM deposit WHERE month_of='$monthN' AND year_of='$yearN'");
-$rows1 = mysqli_fetch_array($result1);
-if ($rows1['total'] == NULL) {
-	$thisMonthCollection = "0";
-} else {
-	$thisMonthCollection = $rows1[0];
-}
-
-//Total Donation Donation Amount
-$result2 = mysqli_query($conn, "SELECT SUM(amount) as total FROM `donation`");
-$rows2 = mysqli_fetch_array($result2);
-$donationAmout = $rows2['total'];
-
-$pendingAmount = "0";
-
-//Reaming Amount
-$total_remaing_amount = $totalCollection - $donationAmout;
-
-//Get Dashboard
-$result3 = mysqli_query($conn, "SELECT COUNT(*) as users FROM `users_login`");
-$rows3 = mysqli_fetch_array($result3);
-$usersCount = $rows3['users'];
-
-//This Year Collection
-$Year = date("Y");
-$result4 = mysqli_query($conn, "SELECT SUM(amount) as totalAmount FROM `deposit` WHERE year_of='$Year'");
-$rows4 = mysqli_fetch_array($result4);
-$thisYearCollection = $rows4['totalAmount'];
-
-//This Year Donation
-$Year = date("Y");
-$startYear = $Year . "-01-01 00:00:00";
-$endYear = $Year . "-12-31 23:59:59";
-$result5 = mysqli_query($conn, "SELECT SUM(amount) as totalAmount FROM `donation` WHERE `date_time` BETWEEN '$startYear' AND '$endYear'");
-//echo  "SELECT SUM(*) as totalAmount FROM `donation` WHERE date_time='$thisYear'";
-//echo "SELECT SUM(amount) as totalAmount FROM `donation` WHERE `date_time` BETWEEN '$startYear' AND '$endYear'";
-$rows5 = mysqli_fetch_array($result5);
-$thisYearDonation = $rows5['totalAmount'];
+//Getting terminate Count
+$getTerminateCountQuery = "SELECT SUM(terminate) FROM `projects_suppliers_link`";
+$terminateCountResult = mysqli_query($conn, $getTerminateCountQuery);
+$terminateCount = mysqli_fetch_array($terminateCountResult);
+$terminateCount = $terminateCount['SUM(terminate)'];
 
 
 ?>
@@ -148,7 +63,7 @@ $thisYearDonation = $rows5['totalAmount'];
 				<div class="card text-white bg-primary">
 					<div class="card-header">Total <br> Clicks</div>
 					<div class="card-body">
-						<h5 class="card-title text-white">245
+						<h5 class="card-title text-white"><?php echo $clickCount; ?>
 							<?php //echo $totalCollection;    ?>
 						</h5>
 					</div>
@@ -158,7 +73,7 @@ $thisYearDonation = $rows5['totalAmount'];
 				<div class="card text-white bg-success">
 					<div class="card-header">Total <br> Completes</div>
 					<div class="card-body">
-						<h5 class="card-title text-white">2
+						<h5 class="card-title text-white"><?php echo $completeCount; ?>
 							<?php //echo $donationAmout;    ?>
 						</h5>
 					</div>
@@ -168,7 +83,7 @@ $thisYearDonation = $rows5['totalAmount'];
 				<div class="card text-white bg-warning">
 					<div class="card-header">Total <br> Terminates</div>
 					<div class="card-body">
-						<h5 class="card-title text-white">114
+						<h5 class="card-title text-white"><?php echo $terminateCount ?>
 							<?php //echo $total_remaing_amount;    ?>
 						</h5>
 					</div>
