@@ -179,8 +179,34 @@
                                             <td>
                                                 <?php echo "$" . $cpi; ?>
                                             </td>
-                                            <td>87</td>
-                                            <td>12</td>
+                                            <td>
+                                                <?php
+                                                //Getting Complete Count
+                                                $getCompleteCountQuery = "SELECT SUM(completes) FROM `projects_suppliers_link` WHERE project_id='$project_ID'";
+                                                $completeCountResult = mysqli_query($conn, $getCompleteCountQuery);
+                                                $completeCount = mysqli_fetch_array($completeCountResult);
+                                                $completeCount = $completeCount['SUM(completes)'];
+                                                if ($completeCount == 0) {
+                                                    echo "0";
+                                                } else {
+                                                    echo $completeCount;
+                                                }
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <?php
+                                                //Getting terminate Count
+                                                $getTerminateCountQuery = "SELECT SUM(terminates) FROM `projects_suppliers_link` WHERE project_id='$project_ID'";
+                                                $terminateCountResult = mysqli_query($conn, $getTerminateCountQuery);
+                                                $terminateCount = mysqli_fetch_array($terminateCountResult);
+                                                $terminateCount = $terminateCount['SUM(terminates)'];
+                                                if ($terminateCount == 0) {
+                                                    echo "0";
+                                                } else {
+                                                    echo $terminateCount;
+                                                }
+                                                ?>
+                                            </td>
                                             <td>
                                                 <a href="projectUpdateDetails.php?project_id=<?php echo $project_ID; ?>"
                                                     class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover"
