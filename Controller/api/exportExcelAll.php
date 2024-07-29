@@ -2,11 +2,30 @@
 
 include ("../../DBConfig/connection.php");
 
-//Query String for Supplier ID
+// Query String for Supplier ID
 $supplier_id = $_GET['supplier_id'];
 
 // SQL query to select data from database
 $sql = "SELECT * FROM `projects_suppliers_link_status` WHERE sipplier_id='$supplier_id'";
+
+// Getting Supplier Details
+$getSupplierDetialsQuery = "SELECT * FROM `suppliers` WHERE supplier_id='$supplier_id'";
+$getSupplierDetialsResult = mysqli_query($conn, $getSupplierDetialsQuery);
+$supplierDetails = mysqli_fetch_array($getSupplierDetialsResult);
+$supplierName = $supplierDetails['supplier_name'];
+
+// Getting Project Supplier Status Details
+$getProjectsSuppliersStatus = "SELECT * FROM `projects_suppliers_link_status` WHERE sipplier_id='$supplier_id'";
+$getProjectsSuppliersStatusResult = mysqli_query($conn, $getProjectsSuppliersStatus);
+$projectsSuppliersStatus = mysqli_fetch_array($getProjectsSuppliersStatusResult);
+$project_id = $projectsSuppliersStatus['project_id'];
+
+// Getting Project Details
+$getProjectDetailsQuery = "SELECT * FROM `projects` WHERE project_id='$project_id'";
+$getProjectDetailsResult = mysqli_query($conn, $getProjectDetailsQuery);
+$projectDetails = mysqli_fetch_array($getProjectDetailsResult);
+$id = $projectDetails['id'];
+
 
 // Execute query
 $result = $conn->query($sql);
@@ -14,7 +33,7 @@ $result = $conn->query($sql);
 // Check if query executed successfully
 if ($result->num_rows > 0) {
     // Create Excel file
-    $filename = "supplier_link_data.xls";
+    $filename = $supplier_name . "-II" . $id . ".xls";
     header("Content-Type: application/vnd.ms-excel");
     header("Content-Disposition: attachment; filename=\"$filename\"");
 
@@ -29,6 +48,7 @@ if ($result->num_rows > 0) {
     ?>
     <!DOCTYPE html>
     <html>
+
     <head>
         <title>Not Live</title>
         <style>
@@ -46,6 +66,7 @@ if ($result->num_rows > 0) {
     <body>
         <h1 id="mesg">There are no Terminates data.</h1>
     </body>
+
     </html>
     <?php
 }
