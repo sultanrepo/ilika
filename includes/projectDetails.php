@@ -42,6 +42,9 @@ $projectQuery = "SELECT * FROM `projects` WHERE project_id='$project_id'";
 $project_res = mysqli_query($conn, $projectQuery);
 $project_row = mysqli_fetch_array($project_res);
 
+echo "<pre>";
+print_r($project_row);
+
 $id = $project_row['id'];
 $client_id = $project_row['client_id'];
 $project_id = $project_row['project_id'];
@@ -207,8 +210,6 @@ $terminateCount = $terminateCount['SUM(terminates)'];
                         <div class="card-body">
                             <h3>Project Information</h3>
                             <hr>
-
-
                             <div class="container">
                                 <div class="row g-2">
                                     <div class="col">
@@ -237,10 +238,7 @@ $terminateCount = $terminateCount['SUM(terminates)'];
                                     </div>
                                 </div>
                             </div>
-
                             <hr>
-
-
                             <div class="container">
                                 <div class="row g-2">
                                     <div class="col">
@@ -262,8 +260,6 @@ $terminateCount = $terminateCount['SUM(terminates)'];
                                 </div>
                             </div>
                             <hr>
-
-
                             <div class="container">
                                 <div class="row g-2">
                                     <div class="col">
