@@ -291,7 +291,7 @@ $terminateCount = $terminateCount['SUM(terminates)'];
                                     if ($project_desc === "") {
                                         echo "NA";
                                     } else {
-                                        echo $project_desc;
+                                        echo nl2br($project_desc);
                                     }
                                     ?>
                                 </b>
