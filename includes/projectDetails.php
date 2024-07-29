@@ -285,7 +285,7 @@ $terminateCount = $terminateCount['SUM(terminates)'];
                             </div>
                             <hr>
                             <h5>Description</h5>
-                            <p>
+                            <p class="card bg-transparent">
                                 <b>
                                     <?php
                                     if ($project_desc === "") {
