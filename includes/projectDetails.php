@@ -42,8 +42,8 @@ $projectQuery = "SELECT * FROM `projects` WHERE project_id='$project_id'";
 $project_res = mysqli_query($conn, $projectQuery);
 $project_row = mysqli_fetch_array($project_res);
 
-echo "<pre>";
-print_r($project_row);
+// echo "<pre>";
+// print_r($project_row);
 
 $id = $project_row['id'];
 $client_id = $project_row['client_id'];
