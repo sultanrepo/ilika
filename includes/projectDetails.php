@@ -213,7 +213,7 @@ $terminateCount = $terminateCount['SUM(terminates)'];
                                 <div class="row g-2">
                                     <div class="col">
                                         <h5>Serial No.</h5>
-                                        <p><b><?php echo $id; ?></b></p>
+                                        <p><b><?php echo "II" . $id; ?></b></p>
                                     </div>
                                     <div class="col">
                                         <h5>Name</h5>
