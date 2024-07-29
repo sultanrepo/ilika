@@ -26,7 +26,28 @@ if ($result->num_rows > 0) {
         echo $row["s_no"] . "\t" . $row["lead_id"] . "\t" . $row["p_id"] . "\t" . $row["link_id"] . "\t" . $row["project_id"] . "\t" . $row["sipplier_id"] . "\t" . $row["client_id"] . "\t" . $row["status"] . "\t" . $row["ip_address"] . "\t" . $row["username"] . "\t" . $row["timestamp"] . "\n";
     }
 } else {
-    echo "0 results";
+    ?>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Not Live</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+            }
+
+            #mesg {
+                color: #FF0000;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1 id="mesg">There are no Terminates data.</h1>
+    </body>
+    </html>
+    <?php
 }
 
 
