@@ -108,59 +108,6 @@ $terminateCount = $terminateCount['SUM(terminates)'];
 					</div>
 				</div>
 			</div>
-			<!-- <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-				<div class="card text-white bg-secondary ">
-					<div class="card-header"> Collections
-					</div>
-					<div class="card-body">
-						<h5 class="card-title text-white">₹</h5>
-					</div>
-				</div>
-			</div> -->
-			<!--<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">-->
-			<!--	<div class="card text-white bg-danger">-->
-			<!--		<div class="card-header">Pending Payment For "<?php //echo $monthName;     ?>" Month</div>-->
-			<!--		<div class="card-body">-->
-			<!--			<h5 class="card-title text-white">0 Members</h5>-->
-			<!--		</div>-->
-			<!--	</div>-->
-			<!--</div>-->
-			<!-- <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-						<div class="card text-white bg-warning">
-							<div class="card-header">Header</div>
-							<div class="card-body">
-								<h5 class="card-title text-white">Warning Card</h5>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-						<div class="card text-white bg-info">
-							<div class="card-header">Header</div>
-							<div class="card-body">
-								<h5 class="card-title text-white">Info Card</h5>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-						<div class="card bg-charcoal-light-5">
-							<div class="card-header">Header</div>
-							<div class="card-body">
-								<h5 class="card-title">Light Card</h5>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-						<div class="card text-white bg-dark">
-							<div class="card-header">Header</div>
-							<div class="card-body">
-								<h5 class="card-title text-white">Dark Card</h5>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							</div>
-						</div>
-					</div> -->
 		</div>
 		<!-- Card -->
 		<!-- Page Body -->
