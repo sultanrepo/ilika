@@ -110,6 +110,159 @@ $terminateCount = $terminateCount['SUM(terminates)'];
 			</div>
 		</div>
 		<!-- Card -->
+		<!-- Table -->
+		<hr>
+		<header class="contact-header">
+			<div class="d-flex align-items-center">
+				<div class="dropdown">
+					<a class="contactapp-title dropdown-toggle link-dark" data-bs-toggle="dropdown" href="#"
+						role="button" aria-haspopup="true" aria-expanded="false">
+						<h4>Live Status</h2>
+					</a>
+				</div>
+			</div>
+			<div class="contact-options-wrap">
+				<a class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover no-caret d-sm-inline-block d-none"
+					href="index.php" data-bs-toggle="tooltip" data-placement="top" title=""
+					data-bs-original-title="Refresh"><span class="icon"><span class="feather-icon"><i
+								data-feather="refresh-cw"></i></span></span></a>
+			</div>
+		</header>
+		<div class="contact-body">
+			<div data-simplebar class="nicescroll-bar">
+				<div class="collapse" id="collapseQuick">
+					<div class="quick-access-form-wrap">
+						<form class="quick-access-form border">
+							<div class="row gx-3">
+								<div class="col-xxl-10">
+									<div class="position-relative">
+										<div class="dropify-square">
+											<input type="file" class="dropify-1" />
+										</div>
+										<div class="col-md-12">
+											<div class="row gx-3">
+												<div class="col-lg-4">
+													<div class="form-group">
+														<input class="form-control" placeholder="First name*" value=""
+															type="text">
+													</div>
+													<div class="form-group">
+														<input class="form-control" placeholder="Last name*" value=""
+															type="text">
+													</div>
+												</div>
+												<div class="col-lg-4">
+													<div class="form-group">
+														<input class="form-control" placeholder="Email Id*" value=""
+															type="text">
+													</div>
+													<div class="form-group">
+														<input class="form-control" placeholder="Phone" value=""
+															type="text">
+													</div>
+												</div>
+												<div class="col-lg-4">
+													<div class="form-group">
+														<input class="form-control" placeholder="Department" value=""
+															type="text">
+													</div>
+													<div class="form-group">
+														<select id="input_tags" class="form-control"
+															multiple="multiple">
+															<option selected="selected">Collaborator</option>
+															<option>Designer</option>
+															<option selected="selected">Developer</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xxl-2">
+									<div class="form-group">
+										<button data-bs-toggle="collapse" data-bs-target="#collapseExample"
+											aria-expanded="false" class="btn btn-block btn-primary ">Create New
+										</button>
+									</div>
+									<div class="form-group">
+										<button data-bs-toggle="collapse" disabled data-bs-target="#collapseExample"
+											aria-expanded="false" class="btn btn-block btn-secondary">Discard
+										</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="contact-list-view">
+					<table id="datable_1" class="table nowrap w-100 mb-5">
+						<thead>
+							<tr>
+								<th>
+									<span class="form-check mb-0">
+										<input type="checkbox" class="form-check-input check-select-all"
+											id="customCheck1">
+										<label class="form-check-label" for="customCheck1"></label>
+									</span>
+								</th>
+								<th><b>Project ID</b></th>
+								<th><b>Username</b></th>
+								<th><b>Status</b></th>
+								<th><b>Date & Time</b></th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php
+							$query3 = "SELECT * FROM `projects_suppliers_link_status`";
+							$result3 = mysqli_query($conn, $query3);
+							while ($rows3 = mysqli_fetch_array($result3)) {
+								$project_id = $rows3['project_id'];
+								$username = $rows3['username'];
+								$status = $rows3['status'];
+								$dateTime = $rows3['timestamp'];
+
+								$getProjectIDQuery = "SELECT * FROM `projects_suppliers` WHERE project_id='$project_id'";
+								$getProjectIDResult = mysqli_query($conn, $getProjectIDQuery);
+								$getProjectIDRows = mysqli_fetch_array($getProjectIDResult);
+								$s_no = $getProjectIDRows['s_no'];
+								?>
+								<tr>
+									<td>
+										<div class="d-flex align-items-center">
+											<!-- <span class="contact-star marked"><span class="feather-icon"><i data-feather="star"></i></span></span> -->
+										</div>
+									</td>
+									<td>
+										<?php echo "II" . $s_no; ?>
+									</td>
+									<td>
+										<?php echo $username; ?>
+									</td>
+									<td>
+										<?php
+										if ($status == "redirectsComplete") {
+											echo "Complete";
+										} else if ($status == "redirectsTerminate") {
+											echo "Terminate";
+										} else if ($status == "redirectsQuotafull") {
+											echo "Quotafull";
+										} else if ($status == "qualityTerminate") {
+											echo "Quality Terminate";
+										}
+										?>
+									</td>
+									<td>
+										<?php echo $dateTime; ?>
+									</td>
+								</tr>
+							<?php } ?>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<!-- Table -->
 		<!-- Page Body -->
 		<!-- dashboardMainHtml.php -->
 		<!-- /Page Body -->

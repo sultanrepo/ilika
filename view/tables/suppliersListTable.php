@@ -103,13 +103,10 @@
 												<label class="form-check-label" for="customCheck1"></label>
 											</span>
 										</th>
-										<th><b>Serial No</b></th>
-										<th><b>ID</b></th>
-										<th><b>Name</b></th>
-										<th><b>Email</b></th>
+										<th><b>Project ID</b></th>
+										<th><b>Username</b></th>
 										<th><b>Status</b></th>
-										<th><b>Actions</b></th>
-										<!-- <th>Actions</th> -->
+										<th><b>Date & Time</b></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -186,7 +183,7 @@
 													data-bs-original-title="Completes" href="edit-contact.html">
 													<span class="icon">
 														<span class="feather-icon">
-														<i class="material-icons">assignment</i>
+															<i class="material-icons">assignment</i>
 														</span>
 													</span>
 												</a>
@@ -197,7 +194,7 @@
 													data-bs-original-title="Status Report" href="edit-contact.html">
 													<span class="icon">
 														<span class="feather-icon">
-														<i class="material-icons">assessment</i>
+															<i class="material-icons">assessment</i>
 														</span>
 													</span>
 												</a>
