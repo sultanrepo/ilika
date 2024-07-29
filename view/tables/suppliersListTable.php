@@ -180,7 +180,7 @@
 													</span>
 												</a>
 
-												<a href="Controller/api/exportExcelAll.php?supplier_id=<?php echo $supplier_id; ?>"
+												<a href="Controller/api/exportExcelCompletes.php?supplier_id=<?php echo $supplier_id; ?>"
 													class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover"
 													data-bs-toggle="tooltip" data-placement="top" title=""
 													data-bs-original-title="Completes" href="edit-contact.html">
@@ -191,7 +191,7 @@
 													</span>
 												</a>
 
-												<a href="Controller/api/exportExcelCompletes.php?supplier_id=<?php echo $supplier_id; ?>"
+												<a href="Controller/api/exportExcelAll.php?supplier_id=<?php echo $supplier_id; ?>"
 													class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover"
 													data-bs-toggle="tooltip" data-placement="top" title=""
 													data-bs-original-title="Status Report" href="edit-contact.html">
