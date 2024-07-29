@@ -6,7 +6,7 @@ include ("../../DBConfig/connection.php");
 $supplier_id = $_GET['supplier_id'];
 
 // SQL query to select data from database
-$sql = "SELECT * FROM `projects_suppliers_link_status` WHERE sipplier_id='$supplier_id'";
+$sql = "SELECT * FROM `projects_suppliers_link_status` WHERE sipplier_id='$supplier_id' AND status='redirectsComplete'";
 
 // Execute query
 $result = $conn->query($sql);
