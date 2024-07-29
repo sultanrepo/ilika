@@ -214,7 +214,7 @@ $terminateCount = $terminateCount['SUM(terminates)'];
 						</thead>
 						<tbody>
 							<?php
-							$query3 = "SELECT * FROM `projects_suppliers_link_status`";
+							$query3 = "SELECT * FROM `projects_suppliers_link_status` ORDER BY s_no DESC";
 							$result3 = mysqli_query($conn, $query3);
 							while ($rows3 = mysqli_fetch_array($result3)) {
 								$project_id = $rows3['project_id'];
