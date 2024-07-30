@@ -55,7 +55,7 @@ if ($status == "redirectsComplete") {
     if ($updateResult = mysqli_query($conn, $updateCompleteCountQuery)) {
         echo "Updated..!";
 
-        $updateStatus = "UPDATE `projects_suppliers_link_status` SET `status`='redirectsComplete',`timestamp`='$timestamp' WHERE `client_id`='$clientid' AND `username`='$username'";
+        $updateStatus = "UPDATE `projects_suppliers_link_status` SET `status`='redirectsComplete',`timestamp`='$timestamp' WHERE `client_id`='$clientid' AND `lead_id`='$username'";
         $updateStatusResult = mysqli_query($conn, $updateStatus);
 
         // $insertStatus = "INSERT INTO `projects_suppliers_link_status`
@@ -93,7 +93,7 @@ if ($status == "redirectsComplete") {
     if ($updateResult = mysqli_query($conn, $updateCompleteCountQuery)) {
         echo "Updated..!";
 
-        $updateStatus = "UPDATE `projects_suppliers_link_status` SET `status`='redirectsTerminate',`timestamp`='$timestamp' WHERE `client_id`='$clientid' AND `username`='$username'";
+        $updateStatus = "UPDATE `projects_suppliers_link_status` SET `status`='redirectsTerminate',`timestamp`='$timestamp' WHERE `client_id`='$clientid' AND `lead_id`='$username'";
         $updateStatusResult = mysqli_query($conn, $updateStatus);
         echo $updateStatus;
         exit();
@@ -133,7 +133,7 @@ if ($status == "redirectsComplete") {
     if ($updateResult = mysqli_query($conn, $updateCompleteCountQuery)) {
         echo "Updated..!";
 
-        $updateStatus = "UPDATE `projects_suppliers_link_status` SET `status`='redirectsQuotafull',`timestamp`='$timestamp' WHERE `client_id`='$clientid' AND `username`='$username'";
+        $updateStatus = "UPDATE `projects_suppliers_link_status` SET `status`='redirectsQuotafull',`timestamp`='$timestamp' WHERE `client_id`='$clientid' AND `lead_id`='$username'";
         $updateStatusResult = mysqli_query($conn, $updateStatus);
 
         // $insertStatus = "INSERT INTO `projects_suppliers_link_status`
@@ -171,7 +171,7 @@ if ($status == "redirectsComplete") {
     if ($updateResult = mysqli_query($conn, $updateCompleteCountQuery)) {
         echo "Updated..!";
 
-        $updateStatus = "UPDATE `projects_suppliers_link_status` SET `status`='qualityTerminate',`timestamp`='$timestamp' WHERE `client_id`='$clientid' AND `username`='$username'";
+        $updateStatus = "UPDATE `projects_suppliers_link_status` SET `status`='qualityTerminate',`timestamp`='$timestamp' WHERE `client_id`='$clientid' AND `lead_id`='$username'";
         $updateStatusResult = mysqli_query($conn, $updateStatus);
 
         // $insertStatus = "INSERT INTO `projects_suppliers_link_status`
