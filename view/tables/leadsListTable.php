@@ -116,7 +116,7 @@
 								</thead>
 								<tbody>
 									<?php
-									$query3 = "SELECT * FROM `projects_suppliers_link_status`";
+									$query3 = "SELECT * FROM `projects_suppliers_link_status` ORDER by s_no DESC;";
 									$result3 = mysqli_query($conn, $query3);
 									while ($rows3 = mysqli_fetch_array($result3)) {
 										// echo "<pre>";
