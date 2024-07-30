@@ -249,6 +249,8 @@ $terminateCount = $terminateCount['SUM(terminates)'];
 											echo "Quotafull";
 										} else if ($status == "qualityTerminate") {
 											echo "Quality Terminate";
+										} else if ($status == "pending") {
+											echo "Pending";
 										}
 										?>
 									</td>
