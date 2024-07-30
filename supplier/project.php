@@ -92,8 +92,8 @@ if ($supplierStatus == "live") {
             $newQuery = http_build_query($queryParams);
             $newUrl = $parts['scheme'] . '://' . $parts['host'] . $parts['path'] . '?' . $newQuery;
             //$newUrl = $parts['host'] . $parts['path'] . '?' . $newQuery;
-            echo "Parts :" . $parts['scheme'];
-            echo "New Live Link:-" . $newUrl;
+            echo "<br>Parts :" . $parts['scheme'];
+            echo "<br>New Live Link:-" . $newUrl;
             exit();
 
             //Update Click Count
