@@ -28,6 +28,8 @@ function getIPAddress()
     return $ipaddress;
 }
 
+$ipAddress = getIPAddress();
+
 $getSupplierStatusQuery = "SELECT * FROM `projects_suppliers` WHERE supplier_id='$supplierid' AND project_id='$pid'";
 $getSupplierStatusResult = mysqli_query($conn, $getSupplierStatusQuery);
 $supplierStatusRow = mysqli_fetch_array($getSupplierStatusResult);
@@ -117,7 +119,6 @@ if ($supplierStatus == "live") {
                 $supplier_id = $getProjectSupplierLinkRows['supplier_id'];
                 $client_id = $getProjectSupplierLinkRows['client_id'];
                 $status = "pending";
-                $ipAddress = getIPAddress();
                 $dbusername = $user;
 
                 // Inserting Data to Project_supplier_link_Status with pending status.

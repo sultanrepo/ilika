@@ -96,10 +96,10 @@ if ($status == "redirectsComplete") {
         $updateStatus = "UPDATE `projects_suppliers_link_status` SET `status`='redirectsTerminate',`timestamp`='$timestamp' WHERE `client_id`='$clientid' AND `username`='$username'";
         $updateStatusResult = mysqli_query($conn, $updateStatus);
 
-        $insertStatus = "INSERT INTO `projects_suppliers_link_status`
-        (`lead_id`, `p_id`, `link_id`, `project_id`, `sipplier_id`, `client_id`, `status`, `ip_address`, `username`, `timestamp`) VALUES 
-        ('$username','$project_id','$linkid','$project_id','$supplier_id','$clientid','redirectsTerminate','$ipaddress','$dbusername','$timestamp')";
-        $insertStatusResult = mysqli_query($conn, $insertStatus);
+        // $insertStatus = "INSERT INTO `projects_suppliers_link_status`
+        // (`lead_id`, `p_id`, `link_id`, `project_id`, `sipplier_id`, `client_id`, `status`, `ip_address`, `username`, `timestamp`) VALUES 
+        // ('$username','$project_id','$linkid','$project_id','$supplier_id','$clientid','redirectsTerminate','$ipaddress','$dbusername','$timestamp')";
+        // $insertStatusResult = mysqli_query($conn, $insertStatus);
 
         $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused',`timestamp`='$timestamp' WHERE client_id='$clientid' AND status='live'";
         if ($updateStatusResult = mysqli_query($conn, $updateCompleteStatus)) {
@@ -134,10 +134,10 @@ if ($status == "redirectsComplete") {
         $updateStatus = "UPDATE `projects_suppliers_link_status` SET `status`='redirectsQuotafull',`timestamp`='$timestamp' WHERE `client_id`='$clientid' AND `username`='$username'";
         $updateStatusResult = mysqli_query($conn, $updateStatus);
 
-        $insertStatus = "INSERT INTO `projects_suppliers_link_status`
-        (`lead_id`, `p_id`, `link_id`, `project_id`, `sipplier_id`, `client_id`, `status`, `ip_address`, `username`, `timestamp`) VALUES 
-        ('$username','$project_id','$linkid','$project_id','$supplier_id','$clientid','redirectsQuotafull','$ipaddress','$dbusername','$timestamp')";
-        $insertStatusResult = mysqli_query($conn, $insertStatus);
+        // $insertStatus = "INSERT INTO `projects_suppliers_link_status`
+        // (`lead_id`, `p_id`, `link_id`, `project_id`, `sipplier_id`, `client_id`, `status`, `ip_address`, `username`, `timestamp`) VALUES 
+        // ('$username','$project_id','$linkid','$project_id','$supplier_id','$clientid','redirectsQuotafull','$ipaddress','$dbusername','$timestamp')";
+        // $insertStatusResult = mysqli_query($conn, $insertStatus);
 
         $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused',`timestamp`='$timestamp' WHERE client_id='$clientid' AND status='live'";
         if ($updateStatusResult = mysqli_query($conn, $updateCompleteStatus)) {
@@ -172,10 +172,10 @@ if ($status == "redirectsComplete") {
         $updateStatus = "UPDATE `projects_suppliers_link_status` SET `status`='qualityTerminate',`timestamp`='$timestamp' WHERE `client_id`='$clientid' AND `username`='$username'";
         $updateStatusResult = mysqli_query($conn, $updateStatus);
 
-        $insertStatus = "INSERT INTO `projects_suppliers_link_status`
-        (`lead_id`, `p_id`, `link_id`, `project_id`, `sipplier_id`, `client_id`, `status`, `ip_address`, `username`, `timestamp`) VALUES 
-        ('$username','$project_id','$linkid','$project_id','$supplier_id','$clientid','qualityTerminate','$ipaddress','$dbusername','$timestamp')";
-        $insertStatusResult = mysqli_query($conn, $insertStatus);
+        // $insertStatus = "INSERT INTO `projects_suppliers_link_status`
+        // (`lead_id`, `p_id`, `link_id`, `project_id`, `sipplier_id`, `client_id`, `status`, `ip_address`, `username`, `timestamp`) VALUES 
+        // ('$username','$project_id','$linkid','$project_id','$supplier_id','$clientid','qualityTerminate','$ipaddress','$dbusername','$timestamp')";
+        // $insertStatusResult = mysqli_query($conn, $insertStatus);
 
         $updateCompleteStatus = "UPDATE `projects_suppliers_link` SET `status`='paused',`timestamp`='$timestamp' WHERE client_id='$clientid' AND status='live'";
         if ($updateStatusResult = mysqli_query($conn, $updateCompleteStatus)) {
