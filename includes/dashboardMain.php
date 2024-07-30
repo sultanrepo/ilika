@@ -259,6 +259,7 @@ $terminateCount = $terminateCount['SUM(terminates)'];
 										<?php echo $dateTime; ?>
 									</td>
 									<td>
+
 										<a href="#"
 											class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover"
 											data-bs-toggle="tooltip" data-placement="top" title=""
@@ -269,6 +270,7 @@ $terminateCount = $terminateCount['SUM(terminates)'];
 												</span>
 											</span>
 										</a>
+										
 									</td>
 								</tr>
 							<?php } ?>
