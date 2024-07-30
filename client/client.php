@@ -171,7 +171,8 @@ if ($status == "redirectsComplete") {
 
         $updateStatus = "UPDATE `projects_suppliers_link_status` SET `status`='qualityTerminate',`timestamp`='$timestamp' WHERE `client_id`='$clientid' AND `username`='$username'";
         $updateStatusResult = mysqli_query($conn, $updateStatus);
-
+        echo $updateStatus;
+        exit();
         // $insertStatus = "INSERT INTO `projects_suppliers_link_status`
         // (`lead_id`, `p_id`, `link_id`, `project_id`, `sipplier_id`, `client_id`, `status`, `ip_address`, `username`, `timestamp`) VALUES 
         // ('$username','$project_id','$linkid','$project_id','$supplier_id','$clientid','qualityTerminate','$ipaddress','$dbusername','$timestamp')";
