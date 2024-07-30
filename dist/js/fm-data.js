@@ -18,7 +18,7 @@ $(function() {
 				"orderable": false,
 				"targets": [0,5]
 			} ],
-			"order": [1, 'asc' ],
+			"order": [1, 'desc' ],
 			"bPaginate": false,
 			"info":     false,
 			"bFilter":     false,
