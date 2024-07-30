@@ -259,13 +259,13 @@ $terminateCount = $terminateCount['SUM(terminates)'];
 										<?php echo $dateTime; ?>
 									</td>
 									<td>
-										<a href="supplierUpdate.php?s_id=<?php echo $supplier_id; ?>"
+										<a href="#"
 											class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover"
 											data-bs-toggle="tooltip" data-placement="top" title=""
-											data-bs-original-title="Edit" href="edit-contact.html">
+											data-bs-original-title="View" href="edit-contact.html">
 											<span class="icon">
 												<span class="feather-icon">
-													<i data-feather="edit"></i>
+													<i data-feather="view"></i>
 												</span>
 											</span>
 										</a>
