@@ -29,6 +29,7 @@ function getIPAddress()
 }
 
 $ipAddress = getIPAddress();
+echo "IP Address:-" . $ipAddress;
 
 $getSupplierStatusQuery = "SELECT * FROM `projects_suppliers` WHERE supplier_id='$supplierid' AND project_id='$pid'";
 $getSupplierStatusResult = mysqli_query($conn, $getSupplierStatusQuery);
@@ -124,7 +125,7 @@ if ($supplierStatus == "live") {
                 // Inserting Data to Project_supplier_link_Status with pending status.
                 $insertStatus = "INSERT INTO `projects_suppliers_link_status`
                 (`lead_id`, `p_id`, `link_id`, `project_id`, `sipplier_id`, `client_id`, `status`, `ip_address`, `username`) VALUES 
-                ('$new_lead_id','$project_id','$link_id','$project_id','$supplier_id','$client_id','$status','$ipaddress','$dbusername')";
+                ('$new_lead_id','$project_id','$link_id','$project_id','$supplier_id','$client_id','$status','$ipAddress','$dbusername')";
                 echo $insertStatus;
                 exit();
                 if ($insertStatusResult = mysqli_query($conn, $insertStatus)) {
