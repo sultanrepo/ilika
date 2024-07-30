@@ -265,7 +265,7 @@ $terminateCount = $terminateCount['SUM(terminates)'];
 											data-bs-original-title="View" href="edit-contact.html">
 											<span class="icon">
 												<span class="feather-icon">
-													<i data-feather="view"></i>
+													<i data-feather="eye"></i>
 												</span>
 											</span>
 										</a>
