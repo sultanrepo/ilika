@@ -210,6 +210,7 @@ $terminateCount = $terminateCount['SUM(terminates)'];
 								<th><b>Username</b></th>
 								<th><b>Status</b></th>
 								<th><b>Date & Time</b></th>
+								<th><b>Action</b></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -256,6 +257,18 @@ $terminateCount = $terminateCount['SUM(terminates)'];
 									</td>
 									<td>
 										<?php echo $dateTime; ?>
+									</td>
+									<td>
+										<a href="supplierUpdate.php?s_id=<?php echo $supplier_id; ?>"
+											class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover"
+											data-bs-toggle="tooltip" data-placement="top" title=""
+											data-bs-original-title="Edit" href="edit-contact.html">
+											<span class="icon">
+												<span class="feather-icon">
+													<i data-feather="edit"></i>
+												</span>
+											</span>
+										</a>
 									</td>
 								</tr>
 							<?php } ?>
