@@ -7,6 +7,27 @@ $linkid = $_GET['linkid'];
 $supplierid = $_GET['supplierid'];
 $user = $_GET['user'];
 
+//Get IP Address
+function getIPAddress()
+{
+    $ipaddress = '';
+    if (isset($_SERVER['HTTP_CLIENT_IP']))
+        $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+    else if (isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    else if (isset($_SERVER['HTTP_X_FORWARDED']))
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+    else if (isset($_SERVER['HTTP_FORWARDED_FOR']))
+        $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+    else if (isset($_SERVER['HTTP_FORWARDED']))
+        $ipaddress = $_SERVER['HTTP_FORWARDED'];
+    else if (isset($_SERVER['REMOTE_ADDR']))
+        $ipaddress = $_SERVER['REMOTE_ADDR'];
+    else
+        $ipaddress = 'UNKNOWN';
+    return $ipaddress;
+}
+
 $getSupplierStatusQuery = "SELECT * FROM `projects_suppliers` WHERE supplier_id='$supplierid' AND project_id='$pid'";
 $getSupplierStatusResult = mysqli_query($conn, $getSupplierStatusQuery);
 $supplierStatusRow = mysqli_fetch_array($getSupplierStatusResult);
@@ -87,7 +108,50 @@ if ($supplierStatus == "live") {
             }
             $updateClickCountQuery = "UPDATE `projects_suppliers_link` SET `click`='$newClickCount',`ipAdd`='$ipaddress',`username`='$user' WHERE `supplier_id`='$supplierid' AND `link_id`='$linkid'";
             if ($updateResult = mysqli_query($conn, $updateClickCountQuery)) {
-                header("Location: " . $newUrl);
+
+                $getProjectSupplierLink = "SELECT * FROM `projects_suppliers_link` WHERE `supplier_id`='$supplierid' AND `link_id`='$linkid'";
+                $getProjectSupplierLinkResult = mysqli_query($conn, $getProjectSupplierLink);
+                $getProjectSupplierLinkRows = mysqli_fetch_array($getProjectSupplierLinkResult);
+                $link_id = $getProjectSupplierLinkRows['link_id'];
+                $project_id = $getProjectSupplierLinkRows['project_id'];
+                $supplier_id = $getProjectSupplierLinkRows['supplier_id'];
+                $client_id = $getProjectSupplierLinkRows['client_id'];
+                $status = "pending";
+                $ipAddress = getIPAddress();
+                $dbusername = $user;
+
+                // Inserting Data to Project_supplier_link_Status with pending status.
+                $insertStatus = "INSERT INTO `projects_suppliers_link_status`
+                (`lead_id`, `p_id`, `link_id`, `project_id`, `sipplier_id`, `client_id`, `status`, `ip_address`, `username`) VALUES 
+                ('$new_lead_id','$project_id','$link_id','$project_id','$supplier_id','$client_id','$status','$ipaddress','$dbusername')";
+                if ($insertStatusResult = mysqli_query($conn, $insertStatus)) {
+                    header("Location: " . $newUrl);
+                } else {
+                    ?>
+                    <!DOCTYPE html>
+                    <html>
+
+                    <head>
+                        <title>Somthing went wrong while redirecting to Live Link.</title>
+                        <style>
+                            body {
+                                font-family: Arial, sans-serif;
+                                text-align: center;
+                            }
+                        </style>
+                    </head>
+
+                    <body>
+                        <h1>Link is Not Live</h1>
+                    </body>
+
+                    </html>
+                    <?php
+                }
+
+
+
+
             }
         }
     }
