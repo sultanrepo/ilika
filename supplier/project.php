@@ -81,7 +81,7 @@ if ($supplierStatus == "live") {
             $new_lead_id = str_replace("IINS", "", $lead_id);
             $new_lead_id = str_pad((int) $new_lead_id + 1, 4, '0', STR_PAD_LEFT);
             $new_lead_id = "IINS" . $new_lead_id;
-            echo "Lead:-" . $new_lead_id; // Outputs: 0202
+            //echo "Lead:-" . $new_lead_id; // Outputs: 0202
 
             //New Live Link With leadID
             $url = $liveLink;
@@ -90,7 +90,8 @@ if ($supplierStatus == "live") {
             $query = parse_str($parts['query'], $queryParams);
             $queryParams['PID'] = $newPid;
             $newQuery = http_build_query($queryParams);
-            $newUrl = $parts['scheme'] . '://' . $parts['host'] . $parts['path'] . '?' . $newQuery;
+            // $newUrl = $parts['scheme'] . '://' . $parts['host'] . $parts['path'] . '?' . $newQuery;
+            $newUrl = $parts['host'] . $parts['path'] . '?' . $newQuery;
             echo "Parts :" . $parts['scheme'];
             echo "New Live Link:-" . $newUrl;
             exit();
