@@ -90,8 +90,8 @@ if ($supplierStatus == "live") {
             $query = parse_str($parts['query'], $queryParams);
             $queryParams['PID'] = $newPid;
             $newQuery = http_build_query($queryParams);
-            // $newUrl = $parts['scheme'] . '://' . $parts['host'] . $parts['path'] . '?' . $newQuery;
-            $newUrl = $parts['host'] . $parts['path'] . '?' . $newQuery;
+            $newUrl = $parts['scheme'] . '://' . $parts['host'] . $parts['path'] . '?' . $newQuery;
+            //$newUrl = $parts['host'] . $parts['path'] . '?' . $newQuery;
             echo "Parts :" . $parts['scheme'];
             echo "New Live Link:-" . $newUrl;
             exit();
