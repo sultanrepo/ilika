@@ -19,13 +19,13 @@ if (isset($_POST['submit'])) {
     $clientId = $random_1 . $random_2 . $random_3;
 
     // get form data
-    $name = $_POST['name'];
-    $description = $_POST['description'];
-    $note = $_POST['note'];
+    $name = trim($_POST['name']);
+    $description = trim($_POST['description']);
+    $note = trim($_POST['note']);
     $redirect_type = "static";
-    $complete_url = $base_url . $clientId . $complete_end_url;
-    $terminate_url = $base_url . $clientId . $terminate_end_url;
-    $quotafull_url = $base_url . $clientId . $quotafull_end_url;
+    $complete_url = trim($base_url . $clientId . $complete_end_url);
+    $terminate_url = trim($base_url . $clientId . $terminate_end_url);
+    $quotafull_url = trim($base_url . $clientId . $quotafull_end_url);
     $status = '1';
 
     // insert form data into database

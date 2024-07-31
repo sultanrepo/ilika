@@ -17,9 +17,9 @@ if (isset($_POST['submit'])) {
     $clientId = $random_1 . $random_2 . $random_3;
 
     // get form data
-    $name = $_POST['name'];
-    $description = $_POST['description'];
-    $note = $_POST['note'];
+    $name = trim($_POST['name']);
+    $description = trim($_POST['description']);
+    $note = trim($_POST['note']);
     $redirect_type = "static";
     $complete_url = $base_url . $clientId . $complete_end_url;
     $terminate_url = $base_url . $clientId . $terminate_end_url;
@@ -28,11 +28,11 @@ if (isset($_POST['submit'])) {
 
     //get form data
     $supplierID = rand(1111, 9999);
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $completeRedURL = $_POST['completeRedURL'];
-    $terminateRedURL = $_POST['terminateRedURL'];
-    $quotafullRedURL = $_POST['quotafullRedURL'];
+    $name = trim($_POST['name']);
+    $email = trim($_POST['email']);
+    $completeRedURL = trim($_POST['completeRedURL']);
+    $terminateRedURL = trim($_POST['terminateRedURL']);
+    $quotafullRedURL = trim($_POST['quotafullRedURL']);
     $supplierStatus = "active";
 
     $supplierRegQuery = "INSERT INTO `suppliers`

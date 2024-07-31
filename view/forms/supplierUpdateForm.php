@@ -5,20 +5,20 @@ $s_id = $_GET['s_id'];
 $supplierQuery = "SELECT * FROM `suppliers` WHERE supplier_id='$s_id'";
 $result = mysqli_query($conn, $supplierQuery);
 $supplierRows = mysqli_fetch_array($result);
-$supplier_name = $supplierRows['supplier_name'];
-$supplier_email = $supplierRows['supplier_email'];
-$complete_redirect_url = $supplierRows['complete_redirect_url'];
-$terminate_redirect_url = $supplierRows['terminate_redirect_url'];
-$quotafull_redirect_url = $supplierRows['quotafull_redirect_url'];
+$supplier_name = trim($supplierRows['supplier_name']);
+$supplier_email = trim($supplierRows['supplier_email']);
+$complete_redirect_url = trim($supplierRows['complete_redirect_url']);
+$terminate_redirect_url = trim($supplierRows['terminate_redirect_url']);
+$quotafull_redirect_url = trim($supplierRows['quotafull_redirect_url']);
 
 if (isset($_POST['submitUpdate'])) {
 
     // get form data
-    $supplier_name = $_POST['name'];
-    $supplier_email = $_POST['email'];
-    $complete_redirect_url = $_POST['completeRedURL'];
-    $terminate_redirect_url = $_POST['terminateRedURL'];
-    $quotafull_redirect_url = $_POST['quotafullRedURL'];
+    $supplier_name = trim($_POST['name']);
+    $supplier_email = trim($_POST['email']);
+    $complete_redirect_url = trim($_POST['completeRedURL']);
+    $terminate_redirect_url = trim($_POST['terminateRedURL']);
+    $quotafull_redirect_url = trim($_POST['quotafullRedURL']);
 
     // Update form data into database
     $supplierUpdateQuery = "UPDATE `suppliers` SET `supplier_name`='$supplier_name',`supplier_email`='$supplier_email',`complete_redirect_url`='$complete_redirect_url',`terminate_redirect_url`='$terminate_redirect_url',`quotafull_redirect_url`='$quotafull_redirect_url' WHERE supplier_id='$s_id'";

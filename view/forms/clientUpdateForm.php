@@ -12,9 +12,9 @@ $note = $clientRows['note'];
 if (isset($_POST['submitUpdate'])) {
 
     // get form data
-    $nameForm = $_POST['name'];
-    $descriptionForm = $_POST['description'];
-    $noteForm = $_POST['note'];
+    $nameForm = trim($_POST['name']);
+    $descriptionForm = trim($_POST['description']);
+    $noteForm = trim($_POST['note']);
 
     // insert form data into database
     $clientUpdateQuery = "UPDATE `clients` SET `c_name`='$nameForm',`desc`='$descriptionForm',`note`='$noteForm' WHERE c_id='$c_id'";

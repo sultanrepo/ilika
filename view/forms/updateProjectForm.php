@@ -6,17 +6,17 @@ $getProjectDetailsByID = "SELECT * FROM `projects` WHERE project_id='$projectID'
 $resultGetProjectDetailsByID = mysqli_query($conn, $getProjectDetailsByID);
 $rowGetProjectDetailsByID = mysqli_fetch_assoc($resultGetProjectDetailsByID);
 
-$client_id = $rowGetProjectDetailsByID['client_id'];
-$project_id = $rowGetProjectDetailsByID['project_id'];
-$project_name = $rowGetProjectDetailsByID['project_name'];
-$project_desc = $rowGetProjectDetailsByID['project_desc'];
-$cpi_DB = $rowGetProjectDetailsByID['cpi'];
-$max_complate_limit = $rowGetProjectDetailsByID['max_complate_limit'];
+$client_id = trim($rowGetProjectDetailsByID['client_id']);
+$project_id = trim($rowGetProjectDetailsByID['project_id']);
+$project_name = trim($rowGetProjectDetailsByID['project_name']);
+$project_desc = trim($rowGetProjectDetailsByID['project_desc']);
+$cpi_DB = trim($rowGetProjectDetailsByID['cpi']);
+$max_complate_limit = trim($rowGetProjectDetailsByID['max_complate_limit']);
 
-$test_link_country = $rowGetProjectDetailsByID['test_link_country'];
-$test_link = $rowGetProjectDetailsByID['test_link'];
-$cid_replacer = $rowGetProjectDetailsByID['cid_replacer'];
-$status = $rowGetProjectDetailsByID['status'];
+$test_link_country = trim($rowGetProjectDetailsByID['test_link_country']);
+$test_link = trim($rowGetProjectDetailsByID['test_link']);
+$cid_replacer = trim($rowGetProjectDetailsByID['cid_replacer']);
+$status = trim($rowGetProjectDetailsByID['status']);
 
 function getCountryName($countryCode)
 {
@@ -31,12 +31,12 @@ function getCountryName($countryCode)
 
 if (isset($_POST['saveChanges'])) {
 
-    $client_ID = $_POST['clientID'];
-    $project_ID = $_POST['project_id'];
-    $projName = $_POST['projectName'];
-    $projectDesc = $_POST['description'];
-    $cpi = $_POST['cpi'];
-    $maxCompletes = $_POST['maxCompLimit'];
+    $client_ID = trim($_POST['clientID']);
+    $project_ID = trim($_POST['project_id']);
+    $projName = trim($_POST['projectName']);
+    $projectDesc = trim($_POST['description']);
+    $cpi = trim($_POST['cpi']);
+    $maxCompletes = trim($_POST['maxCompLimit']);
 
     //Live Link
     $liveLinkCountry = $_POST['liveLinkCountry'];
@@ -45,9 +45,9 @@ if (isset($_POST['saveChanges'])) {
     $liveLinkCountryCount = count($liveLinkCountry);
     $liveLinkCount = count($liveLink);
 
-    $testCountry = $_POST['testCountry'];
-    $testLink = $_POST['testLink'];
-    $cidRep = $_POST['cidRep'];
+    $testCountry = trim($_POST['testCountry']);
+    $testLink = trim($_POST['testLink']);
+    $cidRep = trim($_POST['cidRep']);
     if ($client_ID == 'na') {
         ?>
         <script>

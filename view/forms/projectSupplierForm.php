@@ -6,16 +6,16 @@ $projectQuery = "SELECT * FROM `projects` WHERE project_id='$project_id'";
 $project_res = mysqli_query($conn, $projectQuery);
 $project_row = mysqli_fetch_array($project_res);
 
-$client_id = $project_row['client_id'];
-$project_id = $project_row['project_id'];
-$project_name = $project_row['project_name'];
-$project_desc = $project_row['project_desc'];
-$cpi = $project_row['cpi'];
-$max_complate_limit = $project_row['max_complate_limit'];
-$test_link_country = $project_row['test_link_country'];
-$test_link = $project_row['test_link'];
-$cid_replacer = $project_row['cid_replacer'];
-$status = $project_row['status'];
+$client_id = trim($project_row['client_id']);
+$project_id = trim($project_row['project_id']);
+$project_name = trim($project_row['project_name']);
+$project_desc = trim($project_row['project_desc']);
+$cpi = trim($project_row['cpi']);
+$max_complate_limit = trim($project_row['max_complate_limit']);
+$test_link_country = trim($project_row['test_link_country']);
+$test_link = trim($project_row['test_link']);
+$cid_replacer = trim($project_row['cid_replacer']);
+$status = trim($project_row['status']);
 
 //Getting Client Name
 $getClientNameQuery = "SELECT * FROM `clients` WHERE c_id='$client_id'";

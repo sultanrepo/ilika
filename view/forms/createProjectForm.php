@@ -11,12 +11,12 @@ $note = $clientRows['note'];
 
 if (isset($_POST['createProject'])) {
     print_r($_POST['createProject']);
-    $client_ID = $_POST['clientID'];
-    $project_ID = $_POST['projectID'];
-    $projName = $_POST['projectName'];
-    $projectDesc = $_POST['description'];
-    $cpi = $_POST['cpi'];
-    $maxCompletes = $_POST['maxCompLimit'];
+    $client_ID = trim($_POST['clientID']);
+    $project_ID = trim($_POST['projectID']);
+    $projName = trim($_POST['projectName']);
+    $projectDesc = trim($_POST['description']);
+    $cpi = trim($_POST['cpi']);
+    $maxCompletes = trim($_POST['maxCompLimit']);
 
     //Live Link
     $liveLinkCountry = $_POST['liveLinkCountry'];
@@ -25,9 +25,9 @@ if (isset($_POST['createProject'])) {
     $liveLinkCountryCount = count($liveLinkCountry);
     $liveLinkCount = count($liveLink);
 
-    $testCountry = $_POST['testCountry'];
-    $testLink = $_POST['testLink'];
-    $cidRep = $_POST['cidRep'];
+    $testCountry = trim($_POST['testCountry']);
+    $testLink = trim($_POST['testLink']);
+    $cidRep = trim($_POST['cidRep']);
     if ($client_ID == 'na') {
         ?>
         <script>
@@ -68,8 +68,10 @@ if (isset($_POST['createProject'])) {
             $count = 0;
             for ($i = 0; $i < $liveLinkCountryCount; $i++) {
                 echo "<br>LiveCountry:-" . $liveLinkCountry[$i] . "<br> LiveLink:-" . $liveLink[$i];
+                $liveLinkCountry = trim($liveLinkCountry[$i]);
+                $liveLink = trim($liveLink[$i]);
                 $addLiveLinkQuery = "INSERT INTO `live_link`(`project_id`, `country`, `live_link`) 
-                                    VALUES ('$project_ID','$liveLinkCountry[$i]','$liveLink[$i]')";
+                                    VALUES ('$project_ID','$liveLinkCountry','$liveLink')";
                 echo $addLiveLinkQuery;
                 $addLiveLinkResult = mysqli_query($conn, $addLiveLinkQuery);
                 if ($addLiveLinkQuery) {
