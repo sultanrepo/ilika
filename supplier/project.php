@@ -117,10 +117,10 @@ if ($supplierStatus == "live") {
                 $getProjectSupplierLink = "SELECT * FROM `projects_suppliers_link` WHERE `supplier_id`='$supplierid' AND `link_id`='$linkid'";
                 $getProjectSupplierLinkResult = mysqli_query($conn, $getProjectSupplierLink);
                 $getProjectSupplierLinkRows = mysqli_fetch_array($getProjectSupplierLinkResult);
-                $link_id = $getProjectSupplierLinkRows['link_id'];
-                $project_id = $getProjectSupplierLinkRows['project_id'];
-                $supplier_id = $getProjectSupplierLinkRows['supplier_id'];
-                $client_id = $getProjectSupplierLinkRows['client_id'];
+                $link_id = trim($getProjectSupplierLinkRows['link_id']);
+                $project_id = trim($getProjectSupplierLinkRows['project_id']);
+                $supplier_id = trim($getProjectSupplierLinkRows['supplier_id']);
+                $client_id = trim($getProjectSupplierLinkRows['client_id']);
                 $status = "pending";
                 $dbusername = $user;
 
