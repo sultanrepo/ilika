@@ -130,7 +130,7 @@ if ($supplierStatus == "live") {
                 ('$new_lead_id','$project_id','$link_id','$project_id','$supplier_id','$client_id','$status','$ipAddress','$dbusername')";
 
                 if ($insertStatusResult = mysqli_query($conn, $insertStatus)) {
-                    header("Location: " . $newUrl);
+                    //header("Location: " . $newUrl);
                 } else {
                     ?>
                     <!DOCTYPE html>

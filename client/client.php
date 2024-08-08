@@ -5,6 +5,7 @@ print_r($_GET);
 $clientid = $_GET['clientid'];
 $status = $_GET['status'];
 $username = $_GET['username'];
+exit();
 
 // Set the time zone to Indian time zone (Asia/Kolkata)
 date_default_timezone_set('Asia/Kolkata');
