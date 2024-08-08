@@ -88,7 +88,7 @@ if ($supplierStatus == "live") {
             // Search for the key 'identifier'
             $key = 'identifier';
 
-            $key = ['user', 'PID', 'uid', 'tzid', 'identifier'];
+            $key = ['user', 'USER', 'pid', 'PID', 'uid', 'UID', 'tzid', 'TZID', 'identifier', 'IDENTIFIER'];
             for ($i = 0; $i < count($key); $i++) {
                 $keyName = $key[$i];
                 $value = isset($queryParams[$key[$i]]) ? $queryParams[$key[$i]] : null;
