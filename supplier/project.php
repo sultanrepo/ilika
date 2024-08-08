@@ -73,6 +73,31 @@ if ($supplierStatus == "live") {
             $liveLink = $getLiveLinkRow['live_link'];
             echo "Live Link:-" . $liveLink;
 
+            /**
+             * Gtting The Link identification with Diffrent keys
+             */
+            $identifier = "";
+            //$liveLink = $liveLink;
+
+            // Parse the URL
+            $parsedUrl = parse_url($liveLink);
+
+            // Parse the query string
+            parse_str($parsedUrl['query'], $queryParams);
+
+            // Search for the key 'identifier'
+            $key = 'identifier';
+
+            $key = ['user', 'pid', 'uid', 'tzid', 'identifier'];
+            for ($i = 0; $i < count($key); $i++) {
+                $keyName = $key[$i];
+                $value = isset($queryParams[$key[$i]]) ? $queryParams[$key[$i]] : null;
+                if ($value != null) {
+                    $identifier = $key[$i];
+                }
+            }
+            /** */
+
             //Get LeadID
             $getLeadDetails = "SELECT lead_id FROM `projects_suppliers_link_status` ORDER BY s_no DESC LIMIT 1";
             $getLeadDetailsResult = mysqli_query($conn, $getLeadDetails);
@@ -88,7 +113,7 @@ if ($supplierStatus == "live") {
             $newPid = $new_lead_id;
             $parts = parse_url($url);
             $query = parse_str($parts['query'], $queryParams);
-            $queryParams['PID'] = $newPid;
+            $queryParams[$identifier] = $newPid;
             $newQuery = http_build_query($queryParams);
             $newUrl = $parts['scheme'] . '://' . $parts['host'] . $parts['path'] . '?' . $newQuery;
             //$newUrl = $parts['host'] . $parts['path'] . '?' . $newQuery;
