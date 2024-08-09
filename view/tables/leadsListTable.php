@@ -25,7 +25,7 @@
 					</div>
 				</header>
 				<div class="contact-body">
-					<div data-simplebar class="nicescroll-bar">
+					<div>
 						<div class="collapse" id="collapseQuick">
 							<div class="quick-access-form-wrap">
 								<form class="quick-access-form border">
