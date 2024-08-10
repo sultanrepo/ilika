@@ -139,6 +139,15 @@
                                         $cpi = $rows3['cpi'];
                                         $maximum_completes = $rows3['maximum_completes'];
                                         $status = $rows3['status'];
+
+                                        //Getting Counts
+                                        $getCountsQuery = "SELECT SUM(click), SUM(completes), SUM(terminates) FROM `projects_suppliers_link` where supplier_id='$supplier_id'";
+                                        $getCountsResult = mysqli_query($conn, $getCountsQuery);
+                                        $getCountsRow = mysqli_fetch_array($getCountsResult);
+                                        $clicks = $getCountsRow['SUM(click)'];
+                                        $completes = $getCountsRow['SUM(completes)'];
+                                        $terminates = $getCountsRow['SUM(terminates)'];
+
                                         ?>
                                         <tr>
                                             <td>
@@ -177,13 +186,13 @@
                                                 } ?>
                                             </td>
                                             <td>
-                                                12
+                                                <?php echo $clicks; ?>
                                             </td>
                                             <td>
-                                                11
+                                                <?php echo $completes; ?>
                                             </td>
                                             <td>
-                                                17
+                                                <?php echo $terminates; ?>
                                             </td>
                                             <td>
                                                 <button type="button" class="btn btn-flush-danger flush-outline-hover"
