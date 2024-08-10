@@ -11,7 +11,14 @@ $ip = $_GET['ipaddress'];
 $usernameQuery = "SELECT * FROM `projects_suppliers_link_status` WHERE lead_id='$username'";
 $usernameResult = mysqli_query($conn, $usernameQuery);
 $usernameRow = mysqli_fetch_array($usernameResult);
+$p_id = $usernameRow['p_id'];
 $username = $usernameRow['username'];
+
+//Getting Project Serial No
+$serialNoQuery = "SELECT * FROM `projects` WHERE project_id='$p_id'";
+$serialNoResult = mysqli_query($conn, $serialNoQuery);
+$serialNoRow = mysqli_fetch_array($serialNoResult);
+$serialNo = $serialNoRow['id'];
 
 ?>
 <!DOCTYPE html>
@@ -92,7 +99,7 @@ $username = $usernameRow['username'];
                                                     </thead>
                                                     <tbody class="thead-light">
                                                         <tr>
-                                                            <th><?php echo $pid; ?></th>
+                                                            <th><?php echo "II" . $serialNo; ?></th>
                                                             <th><?php echo $username; ?></th>
                                                             <th><?php echo $status; ?></th>
                                                             <th><?php echo $ip; ?></th>
