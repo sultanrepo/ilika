@@ -141,7 +141,7 @@
                                         $status = $rows3['status'];
 
                                         //Getting Counts
-                                        $getCountsQuery = "SELECT SUM(click), SUM(completes), SUM(terminates) FROM `projects_suppliers_link` where supplier_id='$supplier_id'";
+                                        $getCountsQuery = "SELECT SUM(click), SUM(completes), SUM(terminates) FROM `projects_suppliers_link` where supplier_id='$supplier_id' AND project_id='$id'";
                                         $getCountsResult = mysqli_query($conn, $getCountsQuery);
                                         $getCountsRow = mysqli_fetch_array($getCountsResult);
                                         $clicks = $getCountsRow['SUM(click)'];
