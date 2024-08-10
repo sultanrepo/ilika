@@ -140,9 +140,8 @@
                                         $maximum_completes = $rows3['maximum_completes'];
                                         $status = $rows3['status'];
 
-                                        echo "SELECT SUM(click), SUM(completes), SUM(terminates) FROM `projects_suppliers_link` where supplier_id='$supplier_id' AND project_id='$id'";
                                         //Getting Counts
-                                        $getCountsQuery = "SELECT SUM(click), SUM(completes), SUM(terminates) FROM `projects_suppliers_link` where supplier_id='$supplier_id' AND project_id='$id'";
+                                        $getCountsQuery = "SELECT SUM(click), SUM(completes), SUM(terminates) FROM `projects_suppliers_link` where supplier_id='$supplier_id' AND project_id='$project_id'";
                                         $getCountsResult = mysqli_query($conn, $getCountsQuery);
                                         $getCountsRow = mysqli_fetch_array($getCountsResult);
                                         $clicks = $getCountsRow['SUM(click)'];
