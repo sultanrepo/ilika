@@ -1,12 +1,13 @@
 <?php
 
-include ("../../DBConfig/connection.php");
+include("../../DBConfig/connection.php");
 
 // Query String for Supplier ID
 $supplier_id = $_GET['supplier_id'];
+$pd = $_GET['pd'];
 
 // SQL query to select data from database
-$sql = "SELECT * FROM `projects_suppliers_link_status` WHERE sipplier_id='$supplier_id'";
+$sql = "SELECT * FROM `projects_suppliers_link_status` WHERE sipplier_id='$supplier_id' AND project_id='$pd'";
 
 // Getting Supplier Details
 $getSupplierDetialsQuery = "SELECT * FROM `suppliers` WHERE supplier_id='$supplier_id'";
@@ -33,7 +34,7 @@ $result = $conn->query($sql);
 // Check if query executed successfully
 if ($result->num_rows > 0) {
     // Create Excel file
-    $filename = $supplierName . "-II" . $id . ".xls";
+    $filename = "All - " . $supplierName . " - II" . $id . ".xls";
     header("Content-Type: application/vnd.ms-excel");
     header("Content-Disposition: attachment; filename=\"$filename\"");
 
