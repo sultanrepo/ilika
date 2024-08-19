@@ -3,7 +3,7 @@ error_reporting(error_reporting() & ~E_NOTICE);
 error_reporting(E_ALL ^ E_WARNING);
 
 
-include ("DBConfig/connection.php");
+include("DBConfig/connection.php");
 
 $user_id = $_SESSION['user_id'];
 $getUsername = mysqli_query($conn, "SELECT * FROM `user_details` WHERE user_id='$user_id'");
@@ -223,10 +223,10 @@ $terminateCount = $terminateCount['SUM(terminates)'];
 								$status = $rows3['status'];
 								$dateTime = $rows3['timestamp'];
 
-								$getProjectIDQuery = "SELECT * FROM `projects_suppliers` WHERE project_id='$project_id'";
+								$getProjectIDQuery = "SELECT * FROM `projects` WHERE project_id='$project_id'";
 								$getProjectIDResult = mysqli_query($conn, $getProjectIDQuery);
 								$getProjectIDRows = mysqli_fetch_array($getProjectIDResult);
-								$s_no = $getProjectIDRows['s_no'];
+								$s_no = $getProjectIDRows['id'];
 								?>
 								<tr>
 									<td>
@@ -256,12 +256,17 @@ $terminateCount = $terminateCount['SUM(terminates)'];
 										?>
 									</td>
 									<td>
-										<?php echo $dateTime; ?>
+										<?php
+										if ($dateTime == null) {
+											echo "NA";
+										} else {
+											echo $dateTime;
+										}
+										?>
 									</td>
 									<td>
 
-										<a href="#"
-											class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover"
+										<a href="#" class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover"
 											data-bs-toggle="tooltip" data-placement="top" title=""
 											data-bs-original-title="View" href="edit-contact.html">
 											<span class="icon">
@@ -270,7 +275,7 @@ $terminateCount = $terminateCount['SUM(terminates)'];
 												</span>
 											</span>
 										</a>
-										
+
 									</td>
 								</tr>
 							<?php } ?>
@@ -286,7 +291,7 @@ $terminateCount = $terminateCount['SUM(terminates)'];
 	</div>
 
 	<!-- Page Footer -->
-	<?php include ("footerContent.php"); ?>
+	<?php include("footerContent.php"); ?>
 	<!-- / Page Footer -->
 
 </div>
