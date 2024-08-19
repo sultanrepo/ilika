@@ -4,6 +4,7 @@ include ("../../DBConfig/connection.php");
 
 //Query String for Supplier ID
 $supplier_id = $_GET['supplier_id'];
+$pd = $_GET['pd'];
 
 // SQL query to select data from database
 $sql = "SELECT * FROM `projects_suppliers_link_status` WHERE sipplier_id='$supplier_id'";
@@ -27,7 +28,7 @@ $projectDetails = mysqli_fetch_array($getProjectDetailsResult);
 $id = $projectDetails['id'];
 
 // SQL query to select data from database
-$sql = "SELECT * FROM `projects_suppliers_link_status` WHERE sipplier_id='$supplier_id' AND status='redirectsComplete'";
+$sql = "SELECT * FROM `projects_suppliers_link_status` WHERE sipplier_id='$supplier_id' AND status='redirectsComplete' AND project_id='$pd'";
 
 // Execute query
 $result = $conn->query($sql);
