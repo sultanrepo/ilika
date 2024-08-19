@@ -36,7 +36,7 @@ $result = $conn->query($sql);
 // Check if query executed successfully
 if ($result->num_rows > 0) {
     // Create Excel file
-    $filename = $supplierName . "-II" . $id . ".xls";
+    $filename = "Completes - ".$supplierName . " - II" . $id . ".xls";
     header("Content-Type: application/vnd.ms-excel");
     header("Content-Disposition: attachment; filename=\"$filename\"");
 
