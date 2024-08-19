@@ -73,7 +73,7 @@ $serialNo = $serialNoRow['id'];
                             <div class="auth-content py-md-0 py-8">
                                 <div class="row">
                                     <div class="col-xl-15 text-center">
-                                        <img src="dist/favIcon/termi.png" class="img-fluid w-sm-70 w-50"
+                                        <img src="dist/favIcon/quality-termi.png" class="img-fluid w-sm-70 w-50"
                                             alt="Terminate" />
                                     </div>
                                 </div>
