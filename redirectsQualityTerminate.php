@@ -21,6 +21,7 @@ $serialNoRow = mysqli_fetch_array($serialNoResult);
 $serialNo = $serialNoRow['id'];
 
 ?>
+
 <!DOCTYPE html>
 
 <html lang="en">
